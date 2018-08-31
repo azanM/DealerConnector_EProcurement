@@ -1,0 +1,421 @@
+﻿@using EProcurement.Models
+@model EProcurement.Models.ViewModel.Transaksi.DetailDeliveryPOVendorViewModel
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Styles {
+    <style>
+    </style>
+}
+
+<div class="page-header">
+    <h1>
+        Transaksi
+        <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            List Purchase Order
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            Detail Delivery
+        </small>
+    </h1>
+</div><!-- /.page-header -->
+
+<div class="row">
+    <div class="col-xs-12">
+        <!-- PAGE CONTENT BEGINS -->
+        <form class="form-horizontal" role="form" method="post" action="~/ListPOVendor/DetailDelivery" enctype="multipart/form-data">
+            <!-- #section:elements.form -->
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">PO Number</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.PONumber, new { htmlAttributes = new { @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.PONumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">PO Date</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.PODate, new { htmlAttributes = new { @Value = Model.PODate == null ? "" : Model.PODate.Value.ToString("dd/MM/yyyy"), @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.PODate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">PO Description</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.PODescription, new { htmlAttributes = new { @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.PODescription, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Officer Name</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.OfficerName, new { htmlAttributes = new { @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.OfficerName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">BBN</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.BBN, new { htmlAttributes = new { @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.BBN, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">DPP</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.DPP, new { htmlAttributes = new { @Value = Model.DPP == null ? "" : Model.DPP.Value.ToString("N2", System.Globalization.CultureInfo.GetCultureInfo("de")), @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.DPP, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">PPN</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.PPN, new { htmlAttributes = new { @Value = Model.PPN == null ? "" : Model.PPN.Value.ToString("N2", System.Globalization.CultureInfo.GetCultureInfo("de")), @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.PPN, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">BBN Price</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.BBNPrice, new { htmlAttributes = new { @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.BBNPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">DPP By Vendor</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.DPPByVendor, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.DPPByVendor, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">PPN By Vendor</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.PPNByVendor, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.PPNByVendor, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">BBN Price By Vendor</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.BBNPriceByVendor, new { htmlAttributes = new { onkeypress = "return validasiAngka(event)", @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.BBNPriceByVendor, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Facture / DO Date</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.FakturDODate, new { htmlAttributes = new { @Value = Model.FakturDODate == null ? "" : Model.FakturDODate.Value.ToString("dd/MM/yyyy"), @class = "date-picker col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.FakturDODate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Facture / DO Number</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.FakturDONumber, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.FakturDONumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">License Plate</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.LicensePlate, new { htmlAttributes = new { @id = "plateSap", @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.LicensePlate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Chassis Number</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.ChassisNumber, new { htmlAttributes = new { @id = "chassisSap", @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.ChassisNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Machine Number</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.MachineNumber, new { htmlAttributes = new { @id = "machineSap", @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.MachineNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">License Plate By Vendor</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.LicensePlateByVendor, new { htmlAttributes = new { @id = "plateVendor", @class = "col-sm-7" } })
+                    <div id="errPlate" style="display:none;">
+                        <i class='control-label fa fa-warning' style='color:red;'> Licence Plate tidak sesuai SAP</i>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.LicensePlateByVendor, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Chassis Number By Vendor</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.ChassisNumberByVendor, new { htmlAttributes = new { @id = "chassisVendor", @class = "col-sm-7" } })
+                    <div id="errChassis" style="display:none;">
+                        <i class='control-label fa fa-warning' style='color:red;'> Chassis Number tidak sesuai SAP</i>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.ChassisNumberByVendor, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Machine Number By Vendor</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.MachineNumberByVendor, new { htmlAttributes = new { @id = "machineVendor", @class = "col-sm-7" } })
+                    <div id="errMachine" style="display:none;">
+                        <i class='control-label fa fa-warning' style='color:red;'> Machine Number tidak sesuai SAP</i>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.MachineNumberByVendor, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">STNK Date by Vendor</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.STNKDateByVendor, new { htmlAttributes = new { @Value = Model.STNKDateByVendor == null ? "" : Model.STNKDateByVendor.Value.ToString("dd/MM/yyyy"), @class = "date-picker col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.STNKDateByVendor, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">STCK Date</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.STCKDate, new { htmlAttributes = new { @Value = Model.STCKDate == null ? "" : Model.STCKDate.Value.ToString("dd/MM/yyyy"), @class = "date-picker col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.STCKDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Tanggal BSTB</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.TanggalBSTB, new { htmlAttributes = new { @Value = Model.TanggalBSTB == null ? "" : Model.TanggalBSTB.Value.ToString("dd/MM/yyyy"), @class = "date-picker col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.TanggalBSTB, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Carrosserie / Accessories Vendor Name</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.CarrosserieAccessoriesVendorName, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.CarrosserieAccessoriesVendorName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Carrosserie / Accessories Address</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.CarrosserieAccessoriesAddress, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.CarrosserieAccessoriesAddress, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Remarks Carrosserie / Accessories</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.RemarksCarrosserieAccessories, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.RemarksCarrosserieAccessories, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Date Entry Carrosserie / Accessories</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.DateEntryCarrosserieAccessories, new { htmlAttributes = new { @Value = Model.DateEntryCarrosserieAccessories == null ? "" : Model.DateEntryCarrosserieAccessories.Value.ToString("dd/MM/yyyy"), @class = "date-picker col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.DateEntryCarrosserieAccessories, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Date Finish Carrosseries / Accessories</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.DateFinishCarrosserieAccessories, new { htmlAttributes = new { @Value = Model.DateFinishCarrosserieAccessories == null ? "" : Model.DateFinishCarrosserieAccessories.Value.ToString("dd/MM/yyyy"), @class = "date-picker col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.DateFinishCarrosserieAccessories, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Remarks PO</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.RemarksPO, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.RemarksPO, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @if (Model.UploadScanCopyPO != null)
+            {
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Upload Scan Copy PO</label>
+                    <div class="col-sm-7">
+                        <div class="col-sm-3">
+                            <!-- #section:custom/file-input -->
+                            <input type="file" id="postedFile" name="postedFile" accept="image/*" />
+                        </div>
+                        @if (Model.UploadScanCopyPO != null)
+                        {
+                            @Html.ActionLink("Download", "DownloadFile", "ListPOVendor", new { fileName = Model.PONumber.Trim() + "_" + Model.UploadScanCopyPO.Trim(), fileDownloadName = Model.UploadScanCopyPO }, new { @target = "_blank" })
+                        }
+                        else
+                        {
+                            @Html.Label("Data Tidak Ada")
+                        }
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Upload Scan Copy PO</label>
+                    <div class="col-sm-3">
+                        <!-- #section:custom/file-input -->
+                        <input type="file" id="postedFile" name="postedFile" accept="image/*" />
+                    </div>
+                </div>
+            }
+
+            <div class="clearfix form-actions">
+                <div class="col-md-offset-3 col-md-9">
+                    <button class="btn btn-danger btn-default btn-round" id="btnUpdate">
+                        <i class="ace-icon fa fa-pencil-square white"></i>
+                        Update
+                    </button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a class="btn btn-grey btn-default btn-round" href="@Url.Action("Index", "ListPOVendor")">
+                        <i class="ace-icon fa fa-times white"></i>
+                        Back
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div><!-- PAGE CONTENT ENDS -->
+</div><!-- /.col -->
+
+
+@section Scripts {
+    <script type="text/javascript">
+        function validasiAngka(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ?
+                    evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
+        jQuery(function ($) {
+
+            $('.datepicker').datepicker({
+                format: 'dd/mm/yyyy'
+            });
+
+            //datepicker plugin
+            //link
+            $('.date-picker').datepicker({
+                autoclose: true,
+                todayHighlight: true,
+                format: 'dd/mm/yyyy'
+            })
+            //show datepicker when clicking on the icon
+            .next().on(ace.click_event, function () {
+                $(this).prev().focus();
+            });
+
+            //or change it into a date range picker
+            $('.input-daterange').datepicker({ autoclose: true });
+
+            $('#postedFile').ace_file_input({
+                no_file: 'No File ...',
+                btn_choose: 'Choose',
+                btn_change: 'Change',
+                droppable: false,
+                onchange: null,
+                thumbnail: false, //| true | large
+                whitelist: 'gif|png|jpg|jpeg'
+                //blacklist:'exe|php'
+                //onchange:''
+                //
+            });
+
+
+            $("select").select2();
+
+
+            $(document).one('ajaxloadstart.page', function (e) {
+
+                $('.daterangepicker.dropdown-menu,.colorpicker.dropdown-menu,.bootstrap-datetimepicker-widget.dropdown-menu').remove();
+            });
+
+
+        });
+
+        window.onload = function () {
+            if ($('#machineSap').val() != "" && $('#machineVendor').val() != "" && $('#machineVendor').val() != $('#machineSap').val()) {
+                $('#errMachine').show();
+            }
+            else {
+                $('#errMachine').hide();
+            }
+            if ($('#chassisSap').val() != "" && $('#chassisVendor').val() != "" && $('#chassisVendor').val() != $('#chassisSap').val()) {
+                $('#errChassis').show();
+            }
+            else {
+                $('#errChassis').hide();
+            }
+            if ($('#plateSap').val() != "" && $('#plateVendor').val() != "" && $('#plateVendor').val() != $('#plateSap').val()) {
+                $('#errPlate').show();
+            }
+            else {
+                $('#errPlate').hide();
+            }
+        };
+
+        $('#btnUpdate').click(function () {
+            //var result = true;
+            //if ($('#machineSap').val() != "" && $('#machineVendor').val() != $('#machineSap').val()) {
+            //    $('#errMachine').show();
+            //    $('#machineVendor').focus();
+            //    result = false;
+            //}
+            //else {
+            //    $('#errMachine').hide();
+            //}
+            //if ($('#chassisSap').val() != "" && $('#chassisVendor').val() != $('#chassisSap').val()) {
+            //    $('#errChassis').show();
+            //    $('#chassisVendor').focus();
+            //    result = false;
+            //}
+            //else {
+            //    $('#errChassis').hide();
+            //}
+            //if ($('#plateSap').val() != "" && $('#plateVendor').val() != $('#plateSap').val()) {
+            //    $('#errPlate').show();
+            //    $('#plateVendor').focus();
+            //    result = false;
+            //}
+            //else {
+            //    $('#errPlate').hide();
+            //}
+            //return result;
+        });
+    </script>
+
+}

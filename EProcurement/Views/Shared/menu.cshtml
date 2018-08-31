@@ -1,0 +1,47 @@
+﻿@model EProcurement.Models.ViewModel.MenuViewModel
+<ul id="menu" class="nav nav-list">
+    @foreach (var item in Model.Items)
+    {
+        <li>
+            @if (item.MenuItemName == "Home")
+                {
+                <a href="@Url.Action("Index", @item.MenuItemPath)">
+                    <i class="@item.ParentIconClass"></i>
+                    <span class="menu-text">
+                        @item.MenuItemName
+                    </span>
+                </a>
+            }
+            else
+            {
+                <a href="#" class="dropdown-toggle">
+                    <i class="@item.ParentIconClass"></i>
+                    <span class="menu-text">
+                        @item.MenuItemName
+                    </span>
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+            }
+
+            <b class="arrow"></b>
+
+            @if (item.ChildMenuItems.Any())
+            {
+                <ul class="submenu">
+                    @foreach (var subitem in item.ChildMenuItems)
+                    {
+                        <li>
+                            <a href="@Url.Action("Index", @subitem.MenuItemPath)">
+                                <i class="@subitem.ParentIconClass"></i>
+                                <i class="@subitem.ChildIconClass"></i>
+                                &nbsp;
+                                @subitem.MenuItemName
+                            </a>
+                            <b class="arrow"></b>
+                        </li>
+                    }
+                </ul>
+            }
+        </li>
+    }
+</ul>

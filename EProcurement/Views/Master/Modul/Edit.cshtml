@@ -1,0 +1,116 @@
+﻿@using EProcurement.Models
+@model EProcurement.Models.Master_Menu
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Styles {
+    <style>
+
+    </style>
+}
+
+<div class="page-header">
+    <h1>
+        Master
+        <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            Modul
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            Edit
+        </small>
+    </h1>
+</div><!-- /.page-header -->
+
+<div class="row">
+    <div class="col-xs-12">
+        <!-- PAGE CONTENT BEGINS -->
+        <form class="form-horizontal" role="form" method="post" action="~/modul/edit">
+            <!-- #section:elements.form -->
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Menu ID</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.MenuID, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.MenuID, "", new { @class = "text-danger", @readonly = true })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Menu Name</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.MenuName, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.MenuName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Text</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.Text, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Order</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.OrderNumber, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.OrderNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+             
+            <div class="clearfix form-actions">
+                <div class="col-md-offset-3 col-md-9">
+                    <button class="btn btn-primary btn-bold">
+                        <i class="ace-icon fa fa-floppy-o bigger-120 white"></i>
+                        Update
+                    </button>
+
+                    &nbsp; &nbsp; &nbsp;
+                    <a class="btn btn-grey btn-default btn-round" href="@Url.Action("Index", "Modul")">
+                        <i class="ace-icon fa fa-times white"></i>
+                        Back
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div><!-- PAGE CONTENT ENDS -->
+</div><!-- /.col -->
+
+
+@section Scripts {
+    <script type="text/javascript">
+        jQuery(function ($) {
+
+
+            //datepicker plugin
+            //link
+            $('.date-picker').datepicker({
+                autoclose: true,
+                todayHighlight: true
+            })
+            //show datepicker when clicking on the icon
+            .next().on(ace.click_event, function () {
+                $(this).prev().focus();
+            });
+
+            //or change it into a date range picker
+            $('.input-daterange').datepicker({ autoclose: true });
+
+
+
+
+            $("select").select2();
+
+
+            $(document).one('ajaxloadstart.page', function (e) {
+
+                $('.daterangepicker.dropdown-menu,.colorpicker.dropdown-menu,.bootstrap-datetimepicker-widget.dropdown-menu').remove();
+            });
+
+        });
+    </script>
+
+}

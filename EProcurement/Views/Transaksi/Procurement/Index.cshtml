@@ -1,0 +1,211 @@
+﻿@using EProcurement.Models
+@model IEnumerable<EProcurement.Models.ViewModel.Transaksi.ListPOProcViewModel>
+
+@{
+    ViewBag.Title = "Vendor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-header">
+    <h1>
+        Transaksi
+        <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            List Purchase Order
+        </small>
+    </h1>
+</div><!-- /.page-header -->
+<label class="block clearfix">
+    <span class="block input-icon input-icon-right">
+        <label>PO Number :</label>
+        <input type="text" id="Tx_PoNumber" style="width:10%" />
+
+        <label>No Rangka :</label>
+        <input type="text" id="Tx_NoRangka" style="width:10%" />
+
+        <button type="submit" id="btn_search" class="btn btn-sm btn-primary">
+            <i class="ace-icon fa fa-key"></i>
+            <span class="bigger-110">Search</span>
+        </button>
+
+    </span>
+</label>
+<div class="clearfix">
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <!-- PAGE CONTENT BEGINS -->
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="clearfix">
+                    <div class="pull-right tableTools-container"></div>
+                </div>
+                <table id="dynamic-table" class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>PO Number</th>
+                            <th>PO Date</th>
+                            <th>Vendor Name</th>
+                            <th>Officer Name</th>
+                            <th width="125px">Status</th>
+                            <th width="125px">Assignment</th>
+                            <th width="125px">Delivery</th>
+                            <th width="125px">Invoice</th>
+                            <th width="125px">BPKB</th>
+
+                            <th>Modified By</th>
+                            <th>Modified Date</th>
+                        </tr>
+                    </thead>
+
+
+                </table>
+            </div><!-- /.span -->
+        </div><!-- /.row -->
+    </div>
+</div>
+@{
+    string url = string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority, Url.Content("~"));
+}
+@section Scripts {
+    <script type="text/javascript">
+
+        jQuery(function ($) {
+            // $("#Tx_PoNumber").val(localStorage['DataxVendor']);
+
+            $("#Tx_PoNumber").val(localStorage['Dataxproc']);
+            $("#Tx_NoRangka").val(localStorage['Dataxproc2']);
+            $.ajax({
+                url: '@Url.Action("GetSearch", "ListPOProcurement")',
+                type: 'GET',
+                data: { PONUmber: $("#Tx_PoNumber").val(), NoRangka: $("#Tx_NoRangka").val() },
+                success: function (result) {
+                    console.log(result);
+                    $('#dynamic-table')
+                     .dataTable({
+                         destroy: true,
+                         data: result,
+                         "order": [[2, "desc"]],
+                         "deferRender": true,
+                         columns: [
+                             { 'data': "PONumber", "autowidth": true },
+                             { 'data': "StrTglPO", "autowidth": true },
+                             { 'data': "VendorName", "autowidth": true },
+                             { 'data': "OfficerName", "autowidth": true },
+                             {
+                                 "render": function (data, type, full, meta) {
+                                     if (full.POStatus != "PO Cancel" && full.POStatus != "PO Complete" && full.POStatus != "Rejected") {
+                                         return '<span >' + full.POStatus + '</span><br /><span style="color: darkviolet">BPKB Outstanding</span>';
+                                     } else {
+                                         return '<span >' + full.POStatus + '</span><br />';
+                                     }
+                                 }
+                             },
+                             {
+                                 "render": function (data, type, full, meta) {
+                                     return '<a class="label label-sm label-info arrowed arrowed-righ" href="/ListPOProcurement/DetailAssignment?poNumber=' + full.PONumber + '">Detail</a>';
+                                 }
+                             },
+                             {
+                                 "render": function (data, type, full, meta) {
+                                     return '<a class="label label-sm label-info arrowed arrowed-righ" href="/ListPOProcurement/DetailDelivery?poNumber=' + full.PONumber + '">Detail</a>';
+                                 }
+                             },
+                             {
+                                 "render": function (data, type, full, meta) {
+                                     return '<a class="label label-sm label-info arrowed arrowed-righ" href="/ListPOProcurement/DetailInvoice?poNumber=' + full.PONumber + '">Detail</a>';
+                                 }
+                             },
+                             {
+                                 "render": function (data, type, full, meta) {
+                                     return '<a class="label label-sm label-info arrowed arrowed-righ" href="/ListPOProcurement/DetailBPKB?poNumber=' + full.PONumber + '">Detail</a>';
+                                 }
+                             },
+
+                                 { 'data': "ModifiedBy", "autowidth": true },
+                                   { 'data': "StrModifiedDate", "autowidth": true },
+                         ]
+                     });
+                },
+                error: function (request, status, error) {
+                    alert("Something Went Wrong.");
+                }
+            });
+
+            //Andri To Datatable
+            $('#btn_search').click(function () {
+                // $('#dynamic-table').destroy();
+
+                var poNumber = $("#Tx_PoNumber").val();
+                localStorage['Dataxproc'] = poNumber;
+                console.log(poNumber)
+                var noRangka = $("#Tx_NoRangka").val();
+                localStorage['Dataxproc2'] = noRangka;
+                console.log(poNumber)
+
+                //if (poNumber.length == 0) {
+                //    alert("Please, Input Reason for Revised");
+                //}
+                //else {
+                $.ajax({
+                    url: '@Url.Action("GetSearch", "ListPOProcurement")',
+                    type: 'GET',
+                    data: { PONUmber: poNumber, NoRangka: noRangka },
+                    success: function (result) {
+                        console.log(result);
+                        $('#dynamic-table')
+                         .dataTable({
+                             destroy: true,
+                             data: result,
+                             "deferRender": true,
+                             "order": [[2, "desc"]],
+                             columns: [
+                                 { 'data': "PONumber", "autowidth": true },
+                                 { 'data': "StrTglPO", "autowidth": true },
+                                 { 'data': "VendorName", "autowidth": true },
+                                 { 'data': "OfficerName", "autowidth": true },
+                                 {
+                                     "render": function (data, type, full, meta) {
+                                         if (full.POStatus != "PO Cancel" && full.POStatus != "PO Complete" && full.POStatus != "Rejected") {
+                                             return '<span >' + full.POStatus + '</span><br /><span style="color: darkviolet">BPKB Outstanding</span>';
+                                         } else {
+                                             return '<span >' + full.POStatus + '</span><br />';
+                                         }
+                                     }
+                                 },
+                                 {
+                                     "render": function (data, type, full, meta) {
+                                         return '<a class="label label-sm label-info arrowed arrowed-righ" href="/ListPOProcurement/DetailAssignment?poNumber=' + full.PONumber + '">Detail</a>';
+                                     }
+                                 },
+                                 {
+                                     "render": function (data, type, full, meta) {
+                                         return '<a class="label label-sm label-info arrowed arrowed-righ" href="/ListPOProcurement/DetailDelivery?poNumber=' + full.PONumber + '">Detail</a>';
+                                     }
+                                 },
+                                 {
+                                     "render": function (data, type, full, meta) {
+                                         return '<a class="label label-sm label-info arrowed arrowed-righ" href="/ListPOProcurement/DetailInvoice?poNumber=' + full.PONumber + '">Detail</a>';
+                                     }
+                                 },
+                                 {
+                                     "render": function (data, type, full, meta) {
+                                         return '<a class="label label-sm label-info arrowed arrowed-righ" href="/ListPOProcurement/DetailBPKB?poNumber=' + full.PONumber + '">Detail</a>';
+                                     }
+                                 },
+                                 { 'data': "StrModifiedDate", "autowidth": true },
+                                 { 'data': "ModifiedBy", "autowidth": true },
+                             ]
+                         });
+                    },
+                    error: function (request, status, error) {
+                        alert("Something Went Wrong.");
+                    }
+                });
+            });
+
+
+        })
+    </script>
+}

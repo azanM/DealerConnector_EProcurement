@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.875, 58.75" name="eprocdb">
+  <DataContextMoniker Name="/eprocdbDataContext" />
+  <nestedChildShapes>
+    <classShape Id="4caf94eb-4aff-40da-babe-f3d9dcab04a5" absoluteBounds="0.5, 1.125, 2, 5.2323225911458326">
+      <DataClassMoniker Name="/eprocdbDataContext/Master_User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d3c997fc-6d4f-4871-959c-5583b1922a68" absoluteBounds="0.515, 1.585, 1.9700000000000002, 4.672322591145833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="77f87e7d-6e2e-4a14-88e9-029cdd07eb70" absoluteBounds="7.375, 1.125, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/eprocdbDataContext/MSMATERIAL" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7d337aca-8a4d-4a4e-ae90-a26583e8cc03" absoluteBounds="7.39, 1.585, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="930e89aa-2776-48fd-9ed4-722f0e317198" absoluteBounds="9.625, 1.125, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/eprocdbDataContext/PRMANUALTYPE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="66b746c2-2e3b-4d2f-b7de-fe5ac54b52ab" absoluteBounds="9.64, 1.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="22de3f7c-89fd-4c3a-9268-6eb05f9d5708" absoluteBounds="2.875, 3.5, 2, 3.8862125651041666">
+      <DataClassMoniker Name="/eprocdbDataContext/CUSTOMCOMPANY" />
+      <nestedChildShapes>
+        <elementListCompartment Id="94e76af9-9274-42ff-847c-3e49f465b507" absoluteBounds="2.89, 3.96, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e61b64b8-ffaa-4fd7-a6f1-6647b0e78802" absoluteBounds="5.125, 3.5, 2, 1.9631982421875">
+      <DataClassMoniker Name="/eprocdbDataContext/CUSTOM_USER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a8924f4a-f616-4e89-b8ee-ee662681908f" absoluteBounds="5.14, 3.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="63f19c41-f40d-463c-a575-468a69fa5306" absoluteBounds="7.375, 4.625, 2, 4.4631168619791666">
+      <DataClassMoniker Name="/eprocdbDataContext/MSPLANT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6b9129cc-0415-4771-bfc3-6ce9c785bf63" absoluteBounds="7.39, 5.085, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e90e0207-a239-400b-bcac-63a9588b4a1f" absoluteBounds="9.625, 2.5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/eprocdbDataContext/STATUS_UPLOADDETAIL" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fe08561e-8dc3-4256-864c-ce728eb72df4" absoluteBounds="9.64, 2.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cbee50aa-989d-4827-a3ee-8e74bca9c8f6" absoluteBounds="9.625, 4.875, 2, 1.9631982421875">
+      <DataClassMoniker Name="/eprocdbDataContext/STATUS_UPLOADREQUIREMENT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dbc504cd-d0f7-4038-ab54-8e1cbb957567" absoluteBounds="9.64, 5.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0b683565-dbed-4662-b524-abe7b16f6838" absoluteBounds="9.625, 7, 2, 1.3862939453125">
+      <DataClassMoniker Name="/eprocdbDataContext/Mgmt_Akse" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5fe74ef3-1c32-47f7-a83e-b8eafb1b322e" absoluteBounds="9.64, 7.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2e79feab-af37-459e-bcd8-90f54316460c" absoluteBounds="9.625, 8.5, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/eprocdbDataContext/MSPURCHASEGROUP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="43a062ff-4b26-428d-a0af-d91aaca3981c" absoluteBounds="9.64, 8.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1309fd59-d318-4dab-ade5-eba6e599254f" absoluteBounds="5.125, 5.625, 2, 2.5401025390625">
+      <DataClassMoniker Name="/eprocdbDataContext/Master_Group" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ec32f359-ffb3-4afe-a7bd-2a539f9cf54b" absoluteBounds="5.14, 6.085, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5730e649-48d0-4c34-a521-56cdec2503d4" absoluteBounds="0.5, 6.625, 2, 4.0785139973958326">
+      <DataClassMoniker Name="/eprocdbDataContext/MSVENDOR" />
+      <nestedChildShapes>
+        <elementListCompartment Id="57f52275-5c64-42ce-87c8-1623578fa276" absoluteBounds="0.515, 7.085, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8a87fcc2-fc5b-42ac-a479-96c8a1b60e45" absoluteBounds="0.5, 10.875, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/eprocdbDataContext/Company_Code" />
+      <nestedChildShapes>
+        <elementListCompartment Id="34d239a9-17b3-4386-abde-868bd7b0db7f" absoluteBounds="0.515, 11.335, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0ec201c1-5876-430a-89da-e28bac48c17b" absoluteBounds="0.5, 27.5, 2, 6.1938297526041657">
+      <DataClassMoniker Name="/eprocdbDataContext/CUSTOM_S02006" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4d96203e-19cd-4732-a5d4-13082d4ad0e9" absoluteBounds="0.515, 27.96, 1.9700000000000002, 5.6338297526041661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dd663fd2-ca4f-46ca-a9c1-3c9e0146d41e" absoluteBounds="0.5, 34, 2, 5.4246240234375">
+      <DataClassMoniker Name="/eprocdbDataContext/PURCHASEREQUESTBYMANUAL" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3d3e0d5b-cd11-4fc5-88cd-58ab1645494d" absoluteBounds="0.515, 34.46, 1.9700000000000002, 4.8646240234375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dfdec865-61e7-4c48-b7d5-02b0c066a91e" absoluteBounds="2.875, 30.125, 2, 6.7707340494791657">
+      <DataClassMoniker Name="/eprocdbDataContext/PURCHASEREQUESTBYQUOTATION" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b5548cd4-c29b-4157-844a-49132b1901b7" absoluteBounds="2.89, 30.585, 1.9700000000000002, 6.2107340494791661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c1710865-a3c1-4028-9ccb-5a7127673110" absoluteBounds="5.125, 8.375, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/eprocdbDataContext/VENDOR_GROUP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="08c0c85f-66fb-4ef2-b961-6aa771c503be" absoluteBounds="5.14, 8.835, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="abce9de9-00f0-4a43-b898-f075e741cb79" absoluteBounds="5.125, 21.125, 2, 7.7322412109375005">
+      <DataClassMoniker Name="/eprocdbDataContext/CUSTOM_VENDOR_TRANSACTION" />
+      <nestedChildShapes>
+        <elementListCompartment Id="785a7db1-b144-4f82-8bb5-de4959c94e52" absoluteBounds="5.14, 21.585, 1.9700000000000002, 7.1722412109375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="66d0a0ec-65d4-409b-9543-e3383e4b9b94" absoluteBounds="5.125, 29.125, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/eprocdbDataContext/POHEADER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="21f6ace7-f8c9-4bfb-9cba-60fcf74fa132" absoluteBounds="5.14, 29.585, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b33b867f-52ad-4031-93e1-6fe241741a1b" absoluteBounds="5.125, 32.25, 2, 1.9631982421875">
+      <DataClassMoniker Name="/eprocdbDataContext/PURCHASEREQUESTBYMANUALSAPMAPPER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="68cee1a1-9044-4176-98b3-67031a34186b" absoluteBounds="5.14, 32.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f36cad4c-ec09-4c58-8cb6-9c60fee48477" absoluteBounds="5.125, 34.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/eprocdbDataContext/CUSTOMFILEUPLOAD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="24b87cc4-e83b-4ad9-84da-87865432966a" absoluteBounds="5.14, 34.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c5424455-4eed-4325-9218-26b8e60ce07c" absoluteBounds="7.375, 23, 2, 3.8862125651041666">
+      <DataClassMoniker Name="/eprocdbDataContext/SLUSER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="96c67169-d491-41fd-a3d9-a81793bdec3a" absoluteBounds="7.39, 23.46, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="172ed22f-8471-4330-902d-c2d86dccc9f6" absoluteBounds="7.375, 27.125, 2, 1.9631982421875">
+      <DataClassMoniker Name="/eprocdbDataContext/PURCHASEREQUESTBYQUOTATIONMAPPER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d1bea8be-87a3-4b41-9c92-dac748c4ab15" absoluteBounds="7.39, 27.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1c5e4835-3265-415c-9365-621d92f8c2ad" absoluteBounds="7.375, 29.25, 2, 1.9631982421875">
+      <DataClassMoniker Name="/eprocdbDataContext/STATUS_UPLOAD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e9af0346-5176-4249-8cc5-37253e7654aa" absoluteBounds="7.39, 29.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0a8c2375-0f93-4beb-8c6f-e2a6ae16575c" absoluteBounds="7.375, 31.375, 2, 1.9631982421875">
+      <DataClassMoniker Name="/eprocdbDataContext/STATUS_UPLOADBPKB" />
+      <nestedChildShapes>
+        <elementListCompartment Id="51d20a4b-305a-4736-9719-f9330f09d679" absoluteBounds="7.39, 31.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dbaee944-1c66-4d0c-8e5d-1b06ab830426" absoluteBounds="7.375, 33.5, 2, 1.9631982421875">
+      <DataClassMoniker Name="/eprocdbDataContext/STATUS_UPLOADDELIVERY" />
+      <nestedChildShapes>
+        <elementListCompartment Id="51a98709-236f-4f9e-b4e1-03160c47ce03" absoluteBounds="7.39, 33.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="acd9c1ab-75da-4549-af7c-a4ebe6ce7642" absoluteBounds="2.875, 1.125, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/eprocdbDataContext/CUSTOMCITY" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b0d5f3aa-d1d3-4566-89e7-0e3b1155736f" absoluteBounds="2.89, 1.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5dacf14a-288f-4ecb-a809-090372e42217" absoluteBounds="5.125, 1.125, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/eprocdbDataContext/CUSTOMREGION" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8dbcf811-3fbc-46b0-bb86-4e579db6cd2c" absoluteBounds="5.14, 1.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d17a7ee4-0f92-4c3b-91bf-7905987eb087" absoluteBounds="0.5, 13.375, 2, 4.0785139973958326">
+      <DataClassMoniker Name="/eprocdbDataContext/CUSTOMPR" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d2082fa5-eaeb-492a-8fbc-4fc46eb611ab" absoluteBounds="0.515, 13.835, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f4b2dfee-a9e4-4a32-9c70-c9e25d9bfe55" absoluteBounds="0.5, 19.75, 2, 7.5399397786458326">
+      <DataClassMoniker Name="/eprocdbDataContext/CUSTOMIR" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a82483a0-fc3e-4d9c-963a-fcac5684a51f" absoluteBounds="0.515, 20.21, 1.9700000000000002, 6.979939778645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e3a2d4ad-5628-4bc0-ab6d-79537b4abf78" absoluteBounds="0.5, 17.625, 2, 1.9631982421875">
+      <DataClassMoniker Name="/eprocdbDataContext/UPLOAD_FILE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="25ec4949-d9bb-4b78-8f38-01809491b0c2" absoluteBounds="0.515, 18.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dd4b2612-33ba-4563-8f62-131d233e5620" absoluteBounds="5.125, 19.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/eprocdbDataContext/CUSTOMSTATUS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9f9a8717-20fe-4c87-b701-01ae030f06c7" absoluteBounds="5.14, 19.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cc08f8c5-42b7-440e-8ce6-c701e32114c4" absoluteBounds="5.125, 17.125, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/eprocdbDataContext/CUSTOMMISC" />
+      <nestedChildShapes>
+        <elementListCompartment Id="28c28d7d-1c46-4e47-ae6e-981bfb98931c" absoluteBounds="5.14, 17.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="860d798e-2111-4709-b032-6095309dafb9" absoluteBounds="7.375, 9.375, 2, 9.4629541015625">
+      <DataClassMoniker Name="/eprocdbDataContext/CUSTOMBPKB" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f456ac0e-6916-460b-a82c-84920e5bc794" absoluteBounds="7.39, 9.835, 1.9700000000000002, 8.9029541015625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b67aeca6-f59d-49e5-b4e6-4c63d339a065" absoluteBounds="5.125, 10.75, 2, 6.0015283203125">
+      <DataClassMoniker Name="/eprocdbDataContext/CUSTOMGR" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fcc16253-f88b-4352-b1f8-3ad01e902717" absoluteBounds="5.14, 11.21, 1.9700000000000002, 5.4415283203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b4f81429-21c5-4d0b-aa56-c9ba11fe1da5" absoluteBounds="0.5, 39.75, 2, 18.693422851562502">
+      <DataClassMoniker Name="/eprocdbDataContext/CUSTOMPO" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f739e31b-a8d9-46e6-9994-a098dab32bd1" absoluteBounds="0.515, 40.21, 1.9700000000000002, 18.1334228515625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c346e907-07c2-4d1d-84cf-f53724e7907e" absoluteBounds="2.875, 37.25, 2, 11.385968424479165">
+      <DataClassMoniker Name="/eprocdbDataContext/CUSTOM_S02002" />
+      <nestedChildShapes>
+        <elementListCompartment Id="af878f2d-0721-42e8-a68b-94d5bd1e89a8" absoluteBounds="2.8899999999999997, 37.71, 1.9700000000000002, 10.825968424479166" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8df2b4ba-d03e-4a51-b4e2-4329c16d3fc3" absoluteBounds="2.875, 10, 2, 15.2319970703125">
+      <DataClassMoniker Name="/eprocdbDataContext/STREAMLINER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0b1067ae-d646-4c3a-a2a6-e4bfe588df75" absoluteBounds="2.89, 10.46, 1.9700000000000002, 14.6719970703125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="97950c7d-73ef-484b-9199-5d029faf78af" absoluteBounds="2.875, 7.5, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/eprocdbDataContext/Master_Menu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="337b6eaf-0c58-4271-82b3-df641c3e969a" absoluteBounds="2.89, 7.9600000000000009, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b21fe86e-2545-47c8-b4e5-01fe8b89a4fe" absoluteBounds="5.5, 0.75, 2, 1.9631982421875">
+      <DataClassMoniker Name="/eprocdbDataContext/Log_Error" />
+      <nestedChildShapes>
+        <elementListCompartment Id="98cf5f9e-a3bd-478e-bb3f-ce7de5a88ec8" absoluteBounds="5.515, 1.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c84052d7-0e9a-47d4-b18b-65c0dd179d8b" absoluteBounds="4.125, 0.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/eprocdbDataContext/Log_Login" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a883449e-259a-4a92-bc26-2c8b33dfeeaa" absoluteBounds="4.14, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

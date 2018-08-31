@@ -1,0 +1,881 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="EProcurement" Class="eprocdbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=sera15016;Initial Catalog=EProcurement;Persist Security Info=True;User ID=eprocuser" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="EProcurementConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Master_User" Member="Master_Users">
+    <Type Name="Master_User">
+      <Column Name="ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.String" DbType="VarChar(35) NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="VarChar(125)" CanBeNull="true" />
+      <Column Name="GroupID" Type="System.String" DbType="VarChar(35) NOT NULL" CanBeNull="false" />
+      <Column Name="RegionID" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Group_VendorID" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="id_vendor" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CountError" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ExpiredDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NeverExpired" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Locked" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SessionID" Type="System.String" DbType="VarChar(512)" CanBeNull="true" />
+      <Column Name="LastLogin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="VarChar(35)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastUpdatedBy" Type="System.String" DbType="VarChar(35)" CanBeNull="true" />
+      <Column Name="LastUpdatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsAdmin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DeleteStatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="No_Telp" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PLANTID" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MSMATERIAL" Member="MSMATERIALs">
+    <Type Name="MSMATERIAL">
+      <Column Name="MATERIALNUMBER" Type="System.String" DbType="VarChar(18) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="MATERIALTYPE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MATERIALGROUP" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="OLDMATERIAL" Type="System.String" DbType="VarChar(18)" CanBeNull="true" />
+      <Column Name="BOMMATERIAL" Type="System.String" DbType="VarChar(18)" CanBeNull="true" />
+      <Column Name="BRAND" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="MODEL" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="GARDAN" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="YEAR" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="PURCHASEGROUPID" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="MATERIALIDVENDOR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PRICELIST" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PRMANUALTYPE" Member="PRMANUALTYPEs">
+    <Type Name="PRMANUALTYPE">
+      <Column Name="PRManualTypeID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PRManualTypeDescription" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CUSTOMCOMPANY" Member="CUSTOMCOMPANies">
+    <Type Name="CUSTOMCOMPANY">
+      <Column Name="COMPANYCODE" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="COMPANYNAME" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="ALAMAT" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="KOTA" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="REGION" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="POSTALCODE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="TELEPON" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="NPWP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="KTPTDP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="COMPANYCODETSO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="COMPANYCODEDSO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="COMPANYCODEISO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DIBUATOLEH" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DIBUATTGL" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DIUBAHOLEH" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DIUBAHTGL" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CUSTOM_USER" Member="CUSTOM_USERs">
+    <Type Name="CUSTOM_USER">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="UserCode" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="PassCode" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ClientTag" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MSPLANT" Member="MSPLANTs">
+    <Type Name="MSPLANT">
+      <Column Name="PLANTID" Type="System.String" DbType="VarChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ALAMAT" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="KELURAHAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="KECAMATAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CITY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="REGION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CONTACTPERSONNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ALAMAT2" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ALAMAT3" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ALAMAT4" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ALAMAT5" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="PROPINSI" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PIC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TITLECP" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="NOHPCP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NOTELPPLANT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="POSTALCODE" Type="System.String" DbType="VarChar(51)" CanBeNull="true" />
+      <Column Name="CUSTOMERNO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.STATUS_UPLOADDETAIL" Member="STATUS_UPLOADDETAILs">
+    <Type Name="STATUS_UPLOADDETAIL">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FILE_UPLOAD" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NO_PO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MODIFIED_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MODIFIED_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VENDORID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.STATUS_UPLOADREQUIREMENT" Member="STATUS_UPLOADREQUIREMENTs">
+    <Type Name="STATUS_UPLOADREQUIREMENT">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FILE_UPLOAD" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NO_PO" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MODIFIED_DATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="MODIFIED_BY" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mgmt_Akses" Member="Mgmt_Akses">
+    <Type Name="Mgmt_Akse">
+      <Column Name="GroupID" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MenuID" Type="System.String" DbType="Char(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AllowModify" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MSPURCHASEGROUP" Member="MSPURCHASEGROUPs">
+    <Type Name="MSPURCHASEGROUP">
+      <Column Name="PURCHASEGROUPID" Type="System.String" DbType="VarChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Master_Group" Member="Master_Groups">
+    <Type Name="Master_Group">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GroupID" Type="System.String" DbType="VarChar(35) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="VarChar(35)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastUpdatedBy" Type="System.String" DbType="VarChar(35)" CanBeNull="true" />
+      <Column Name="LastUpdatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsAdmin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DeleteStatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MSVENDOR" Member="MSVENDORs">
+    <Type Name="MSVENDOR">
+      <Column Name="VENDORID" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="VENDORNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="STREET" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DISTRIC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CITY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="POSTALCODE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="TELEPHONE" Type="System.String" DbType="VarChar(16)" CanBeNull="true" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EMAIL2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EMAIL3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PLANTIDTSO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EMAIL4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EMAIL5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EMAIL6" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EMAIL7" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EMAIL8" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="B2B" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Company_Code" Member="Company_Codes">
+    <Type Name="Company_Code">
+      <Column Name="companyCode" Type="System.String" DbType="VarChar(25) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="initial" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="companyName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="status" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="dibuatOleh" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="dibuatTanggal" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="diubahOleh" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="diubahTanggal" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CUSTOM_S02006" Member="CUSTOM_S02006s">
+    <Type Name="CUSTOM_S02006">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TransactionDataID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BillingNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="KuitansiNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="KuitansiDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CurrencyCode" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="AmountKuitansiDC" Type="System.Decimal" DbType="Decimal(17,4)" CanBeNull="true" />
+      <Column Name="BusinessAreaCode" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="CustomerNo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="NomorSpes" Type="System.String" DbType="VarChar(35)" CanBeNull="true" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="SalesmanNumber" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="NomorFakturPajak" Type="System.String" DbType="VarChar(21)" CanBeNull="true" />
+      <Column Name="ChasisNumber" Type="System.String" DbType="VarChar(18)" CanBeNull="true" />
+      <Column Name="PONumberSERA" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VersionPOSERA" Type="System.Decimal" DbType="Decimal(3,0)" CanBeNull="true" />
+      <Column Name="KuitansiNoRef" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="KuitansiDateRef" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DownloadDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dibuatOleh" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="dibuatTanggal" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="diubahOleh" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="diubahTanggal" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="xmlStatus" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="xmlCreatedBy" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="xmlCreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="xmlModifiedBy" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="xmlModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PURCHASEREQUESTBYMANUAL" Member="PURCHASEREQUESTBYMANUALs">
+    <Type Name="PURCHASEREQUESTBYMANUAL">
+      <Column Name="PRMANUALNUMBER" Type="System.String" DbType="VarChar(17) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PRMANUALNUMBERDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PLANTID" Type="System.String" DbType="VarChar(35)" CanBeNull="true" />
+      <Column Name="STORAGELOCATIONID" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="MATERIALNUMBER" Type="System.String" DbType="VarChar(18)" CanBeNull="true" />
+      <Column Name="MATERIALKAROSERI" Type="System.String" DbType="VarChar(18)" CanBeNull="true" />
+      <Column Name="MERKMOBIL" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="JENISMOBIL" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="TAHUN" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="WARNA" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="JUMLAHUNIT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HARGAOTR" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="BBN" Type="System.String" DbType="VarChar(35)" CanBeNull="true" />
+      <Column Name="PLATNOPOL" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="ALAMATPENGIRIMAN" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CREATEDBY" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CREATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MODIFDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PRManualTypeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PRSTATUS" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="NRP" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="TANGGALPERMOHONAN" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ISKAROSERIONLY" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NOTE" Type="System.String" DbType="VarChar(512)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PURCHASEREQUESTBYQUOTATION" Member="PURCHASEREQUESTBYQUOTATIONs">
+    <Type Name="PURCHASEREQUESTBYQUOTATION">
+      <Column Name="PRNUMBER" Type="System.String" DbType="VarChar(17) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PRNUMBERDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PRTYPE" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="STORAGELOCATIONID" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="PLANTID" Type="System.String" DbType="VarChar(35)" CanBeNull="true" />
+      <Column Name="QUOTNUMBER" Type="System.String" DbType="VarChar(17)" CanBeNull="true" />
+      <Column Name="QUOTNUMBERFROMSAP" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ITEMNUMBERSAP" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="MATERIALNUMBER" Type="System.String" DbType="VarChar(18)" CanBeNull="true" />
+      <Column Name="MERKMOBIL" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="JENISMOBIL" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="TAHUN" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="WARNA" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="JUMLAHUNIT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MASASEWA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HARGASEWAPERBULAN" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="RUU" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="TOTALKONTRAK" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CUSTNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="STATUSSEWA" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="HARGAOTR" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="BBN" Type="System.String" DbType="VarChar(35)" CanBeNull="true" />
+      <Column Name="PLATNOPOL" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="ALAMATPENGIRIMAN" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CREATEDBY" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CREATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MODIFDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NRP" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="TANGGALPERMOHONAN" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PRSTATUS" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VENDOR_GROUP" Member="VENDOR_GROUPs">
+    <Type Name="VENDOR_GROUP">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Group_VendorID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Group_VendorName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Create_By" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Create_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Modified_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Modified_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CUSTOM_VENDOR_TRANSACTION" Member="CUSTOM_VENDOR_TRANSACTIONs">
+    <Type Name="CUSTOM_VENDOR_TRANSACTION">
+      <Column Name="PONumber" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="VersionPOSERA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataVersion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StatusPOSERA" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="RejectRevisedPOSERA" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="DocumentNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="AIMaterialNumber" Type="System.String" DbType="VarChar(18)" CanBeNull="true" />
+      <Column Name="SERAMaterialNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SERAMaterialDescription" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="AIColor" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="SERAColor" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="QuotationNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="SalesOrderStatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Currency" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="Year" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BillingStatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CancellationReason" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="BSTKBNo" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="RevisiSTNK" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NamaPenerima" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="AlamatPenerima" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="StatusCancel" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="ReasonRejection" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="AmountKuitansiDC" Type="System.Decimal" DbType="Decimal(17,4)" CanBeNull="true" />
+      <Column Name="BusinessAreaCode" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="CustomerNo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="NomorSpes" Type="System.String" DbType="VarChar(35)" CanBeNull="true" />
+      <Column Name="SalesmanNumber" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="KuitansiNoRef" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="KuitansiDateRef" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DownloadDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.POHEADER" Member="POHEADERs">
+    <Type Name="POHEADER">
+      <Column Name="PONUMBER" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TANGGALPEMBUATAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PURCHASINGGROUP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VENDOR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="RELEASEINDICATOR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="POSTATUS" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CREATEDBY" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="OFFICER" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ISPODELETED" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CREATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DOCTYPE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PURCHASEREQUESTBYMANUALSAPMAPPER" Member="PURCHASEREQUESTBYMANUALSAPMAPPERs">
+    <Type Name="PURCHASEREQUESTBYMANUALSAPMAPPER">
+      <Column Name="PRMANUALMAPPERID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PRMANUALNUMBER" Type="System.String" DbType="VarChar(17)" CanBeNull="true" />
+      <Column Name="PRMANUALNUMBERFROMSAP" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="PRMANUALNUMBERFROMSAPDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TYPE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ISPOCREATED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CUSTOMFILEUPLOAD" Member="CUSTOMFILEUPLOADs">
+    <Type Name="CUSTOMFILEUPLOAD">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FILEUPLOAD" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MODIFIED_BY" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MODIFIED_DATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SLUSER" Member="SLUSERs">
+    <Type Name="SLUSER">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NRP" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="USERNAME" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="JOBROLEKEY" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="JOBROLEDESC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="JOBPOSITIONKEY" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="JOBPOSITIONDESC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ROLEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="COMPANYCODE" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="SALESOFFICE" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="SALESGROUP" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="FULLNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SIGNATUREPATH" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="SMREFERENCE" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="REPORTINGNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PURCHASEREQUESTBYQUOTATIONMAPPER" Member="PURCHASEREQUESTBYQUOTATIONMAPPERs">
+    <Type Name="PURCHASEREQUESTBYQUOTATIONMAPPER">
+      <Column Name="PRBYQUOTATIONMAPPERID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PRNUMBER" Type="System.String" DbType="VarChar(17)" CanBeNull="true" />
+      <Column Name="PRNUMBERSAP" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="PRDATESAP" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TYPE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ISPOCREATED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.STATUS_UPLOAD" Member="STATUS_UPLOADs">
+    <Type Name="STATUS_UPLOAD">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FILE_UPLOAD" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NO_PO" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MODIFIED_DATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="MODIFIED_BY" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.STATUS_UPLOADBPKB" Member="STATUS_UPLOADBPKBs">
+    <Type Name="STATUS_UPLOADBPKB">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FILE_UPLOAD" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NO_PO" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MODIFIED_DATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="MODIFIED_BY" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.STATUS_UPLOADDELIVERY" Member="STATUS_UPLOADDELIVERies">
+    <Type Name="STATUS_UPLOADDELIVERY">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FILE_UPLOAD" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NO_PO" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MODIFIED_DATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="MODIFIED_BY" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CUSTOMCITY" Member="CUSTOMCITies">
+    <Type Name="CUSTOMCITY">
+      <Column Name="CITYID" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CITYNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DIBUATOLEH" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DIBUATTGL" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DIUBAHOLEH" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DIUBAHTGL" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CUSTOMREGION" Member="CUSTOMREGIONs">
+    <Type Name="CUSTOMREGION">
+      <Column Name="REGIONID" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="REGIONNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DIBUATOLEH" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DIBUATTGL" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DIUBAHOLEH" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DIUBAHTGL" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CUSTOMPR" Member="CUSTOMPRs">
+    <Type Name="CUSTOMPR">
+      <Column Name="IDROW" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PRNUMBER" Type="System.String" DbType="VarChar(17)" CanBeNull="true" />
+      <Column Name="PRSAP" Type="System.String" DbType="VarChar(17)" CanBeNull="true" />
+      <Column Name="TGLPRSAP" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ATMT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CABANGTRAC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CUSTOMERNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MERK" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MERK_INPUT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TGLRELEASEPR" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TYPEUNIT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VARIAN_INPUT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YEAR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MODIFIED_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MODIFIED_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CARMODEL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CARSERIES" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CUSTOMIR" Member="CUSTOMIRs">
+    <Type Name="CUSTOMIR">
+      <Column Name="PONUMBER" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ACTUALRECEIVEDINV" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HARGADELIVERYAP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="INVDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="INVNO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="KETBAYAR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NOFAKTURPAJAK" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TGLSERAHTAGIHAN" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TERMOFPAYMENT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NOAP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TGLPEMBAYARAN" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="KETTAGIHAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ESTIMATEDPAYMENTDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="INVOICESTATUS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="REASONREJECTIONINVOICE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="BPHNUMBER" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MODIFIED_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MODIFIED_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="REVISEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="isRevised" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="xmlStatus" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="xmlCreatedBy" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="xmlCreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="xmlModifiedBy" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="xmlModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="xmlModifiedDateInvNo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="xmlModifiedByInvNo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="xmlCreatedDateInvNo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="xmlCreatedByInvNo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="xmlModifiedDateFaktur" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="xmlModifiedByFaktur" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="xmlCreatedDateFaktur" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="xmlCreatedByFaktur" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="xmlStatusInvNo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="xmlStatusByEngine" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UPLOAD_FILE" Member="UPLOAD_FILEs">
+    <Type Name="UPLOAD_FILE">
+      <Column Name="PONUMBER" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TGLPO" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="KET" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[FILE]" Member="FILE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="LASTUSER" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LASTDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CUSTOMSTATUS" Member="CUSTOMSTATUS">
+    <Type Name="CUSTOMSTATUS">
+      <Column Name="ID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="KETERANGAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CUSTOMMISC" Member="CUSTOMMISCs">
+    <Type Name="CUSTOMMISC">
+      <Column Name="PONumber" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MatDoc" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ItemDelvDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ClearingDocNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AccDocNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FlagDelete" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ReasonRejection" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CUSTOMBPKB" Member="CUSTOMBPKBs">
+    <Type Name="CUSTOMBPKB">
+      <Column Name="PONUMBER" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TGLPROMISEDELIVERYBPKB" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ACTUALRECEIVEDBPKBDICAB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ACTUALRECEIVEDBPKBDIHO" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DETAILPROBLEM" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DELIVERYDATEBPKB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="KETSURATUBAHBENTUK" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="KETBPKB" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="KETKAROSERI" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LOKASIBPKB" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NOFAKTUR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NOFORMULIRA" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NOSERTIFIKAT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NOSURATUBAHBENTUK" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NOSERTIFIKATREGUJITIPE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NOBPKB" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NOPOLISI" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="POSISIBPKB" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PROGRESBPKB" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="STATUSBPKB" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TGLFAKTUR" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TGLFORMULIRA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TGLSERAHBPKB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TGLSERTIFIKAT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TGLSURATUBAHBENTUK" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TGLGRBPKB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TGLSTNK" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TGLBPKBDIKIRIMKEMBALI" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ACTUALDELIVERYBPKBTOFINANCE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DATEDELIVERYTOBRANCHORVENDOR" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="REMARKSDETAILPROBLEM" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="ACTUALRECEIVEDBPKBHOBACK" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="STCKDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NOPOLISI_INPUT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TGLSTNK_INPUT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="REASONREVISEBPKB" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="REVISEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="isRevised" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NOSURATRUBAHWARNA" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TANGGALSURATRUBAHWARNA" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="KETERANGANSURATRUBAHWARNA" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MODIFIED_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MODIFIED_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CUSTOMGR" Member="CUSTOMGRs">
+    <Type Name="CUSTOMGR">
+      <Column Name="PONUMBER" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ACTUALRECEIVEDUNIT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NOCHASIS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NOENGINE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NOEQUIP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NOEQUIPBARU" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TGLCREATEEQUIP" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TGLGRSAP" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NAMAPEMILIK" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VENDORNAMEAP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="STATUSDELIVERYUNIT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MODIFIED_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MODIFIED_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ACTUALRECEIVEDUNITINBDEL" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NOCHASIS_INPUT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NOENGINE_INPUT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NAMAPEMILIK_INPUT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="xmlStatus" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="xmlCreatedBy" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="xmlCreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="xmlModifiedBy" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="xmlModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="xmlStatusEngine" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="xmlModifiedDateEngine" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="xmlModifiedByEngine" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="xmlCreatedDateEngine" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="xmlCreatedByEngine" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CUSTOMPO" Member="CUSTOMPOs">
+    <Type Name="CUSTOMPO">
+      <Column Name="PONUMBER" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TGLPO" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PRNUMBERSAP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HARGAOPTIONAL" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TGLKIRIMCABVENDOR" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="KETPO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PPNOPTIONAL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CABANGVENDOR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DESCCHANGEPO" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DESCPO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DISC" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="HARGABBN" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="HARGADPP" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="HARGAPPNUNIT" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MAINTYPEUNIT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PRICELIST" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PROMISEDLVDATEPO" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TGLCHANGEPO" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="VENDORID" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="VENDORNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BIAYAPENGIRIMAN" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CITY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BENTUKAKHIRUNIT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HISTORYPO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TGLMASUKKAROSERI" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TGLSELESAIKAROSERI" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PURCHASESTATUS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="POSTATUSID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ONTHEROADPRICE" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EXPECTEDDATEDELIVERED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="COLOR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="UNITDELIVERYADDRESS" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ACTUALDATEDELIVEREDUNIT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="REMARKSPOVENDOR" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="REMARKSCARROSSERIE" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="ACTUALRECEIVEDBPKBHOFROMBRANCH" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DELIVERYCOST" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CARROSERIEVENDORNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ACCESORIESADDRESS" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="REMARKS" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="DODATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DONUMBER" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MODIFIED_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MODIFIED_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HARGABBN_INPUT" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="HARGADPP_INPUT" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="HARGAPPNUNIT_INPUT" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CARMODEL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CARSERIES" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="COMPANYCODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="COMPANYNAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ATMT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="KODECABANG" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="CABANGTRAC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MERK" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TYPEUNIT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VARIAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VARIAN_INPUT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MERK_INPUT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="POQTY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PRSAP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="REASONREVISEDBYVENDOR" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="REVISEDDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="isRevised" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TGLGI" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RefDocNo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CODEGROUP" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="TOTALPAYMENT" Type="System.Decimal" DbType="Decimal(17,4)" CanBeNull="true" />
+      <Column Name="LOCALPRICE" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CURRENCY" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CLIENT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FISCALYEAR" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="PROPOSALNUMBER" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ITEM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="APPROVALDATETIME" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="flagRejection" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PICKAROSERI" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="NOTELEPONKAROSERI" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="BENTUKKAROSERI" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SHIPPINGADDRESS1" Type="System.String" DbType="VarChar(132)" CanBeNull="true" />
+      <Column Name="SHIPPINGADDRESS2" Type="System.String" DbType="VarChar(132)" CanBeNull="true" />
+      <Column Name="SHIPPINGADDRESS3" Type="System.String" DbType="VarChar(132)" CanBeNull="true" />
+      <Column Name="SHIPPINGADDRESS4" Type="System.String" DbType="VarChar(132)" CanBeNull="true" />
+      <Column Name="BBNADDRESS1" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="BBNADDRESS2" Type="System.String" DbType="VarChar(132)" CanBeNull="true" />
+      <Column Name="BBNADDRESS3" Type="System.String" DbType="VarChar(132)" CanBeNull="true" />
+      <Column Name="BBNADDRESS4" Type="System.String" DbType="VarChar(132)" CanBeNull="true" />
+      <Column Name="xmlModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="xmlModifiedBy" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="xmlCreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="xmlCreatedBy" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="xmlStatus" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="updateqty" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CUSTOM_S02002" Member="CUSTOM_S02002s">
+    <Type Name="CUSTOM_S02002">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TransactionDataID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PONumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VersionPOSERA" Type="System.Decimal" DbType="Decimal(3,0)" CanBeNull="true" />
+      <Column Name="DataVersion" Type="System.Decimal" DbType="Decimal(3,0)" CanBeNull="true" />
+      <Column Name="StatusPOSERA" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="RejectRevisedPOSERA" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="DocumentNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="AIMaterialNumber" Type="System.String" DbType="VarChar(18)" CanBeNull="true" />
+      <Column Name="SERAMaterialNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SERAMaterialDescription" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="AIColor" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="SERAColor" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="QuotationNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="SalesOrderStatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DPPByVendor" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PPNByVendor" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="BBNPriceByVendor" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Currency" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="ChassisNumberByVendor" Type="System.String" DbType="VarChar(18)" CanBeNull="true" />
+      <Column Name="MachineNumberByVendor" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="CBUCKD" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="Year" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FactureDONumber" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="BillingStatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FactureDODate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NoFakturKendaraan" Type="System.String" DbType="VarChar(22)" CanBeNull="true" />
+      <Column Name="TanggalFakturKendaraan" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CancellationReason" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="ActualDateDeliveryUnit" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BSTKBNo" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="LicensePlateByVendor" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="STNKDateByVendor" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RevisiSTNK" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NoSertifikat" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TglSertifikat" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NoFormulirA" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="TglFormulirA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NoSertifikatRegUjiTipe" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ActualDeliveryBPKBDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NamaPenerima" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="AlamatPenerima" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="BPKBNumber" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="RemarksBPKB" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="RevisiBPKB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dibuatOleh" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="dibuatTanggal" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="diubahOleh" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="diubahTanggal" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="xmlStatus" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="xmlCreatedBy" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="xmlCreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="xmlModifiedBy" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="xmlModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.STREAMLINER" Member="STREAMLINERs">
+    <Type Name="STREAMLINER">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalesContractNumber" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="SalesContractDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PRDeliveryDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="RequesterName" Type="System.String" DbType="Char(80)" CanBeNull="true" />
+      <Column Name="PRStatus" Type="System.String" DbType="Char(32)" CanBeNull="true" />
+      <Column Name="PRKaroseri" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="PRAccessories" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="ProcessVKaroseri" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="ProcessVAccs" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="PROMISEDLVDATEPO" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PeriodePO" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="OfficerName" Type="System.String" DbType="Char(80)" CanBeNull="true" />
+      <Column Name="POStatus" Type="System.String" DbType="Char(32)" CanBeNull="true" />
+      <Column Name="BBN" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="Merk" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="BentukAkhirUnit" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="Gardan" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="EXPECTEDDATEDELIVERED" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Plant" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PRType" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="REQUESTDELIVERYDATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PRDATEASSIGNMENT" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ItemDoc" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="DocType" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="VendorAccountNumber" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="MatGroup" Type="System.String" DbType="Char(9)" CanBeNull="true" />
+      <Column Name="DocCond" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="UoM" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="InfoRecord" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="CurrDisc" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="CurrBBN" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="CurrDPP" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="DLCPrice" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CurrDLC" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="CurrPPN" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="NetPrice" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CurrOPT" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="DocPrice" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="ItemText" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="TextLine2" Type="System.String" DbType="Char(132)" CanBeNull="true" />
+      <Column Name="TextLine3" Type="System.String" DbType="Char(132)" CanBeNull="true" />
+      <Column Name="TextLine4" Type="System.String" DbType="Char(132)" CanBeNull="true" />
+      <Column Name="TextLine5" Type="System.String" DbType="Char(132)" CanBeNull="true" />
+      <Column Name="TextLine6" Type="System.String" DbType="Char(132)" CanBeNull="true" />
+      <Column Name="TextLine7" Type="System.String" DbType="Char(132)" CanBeNull="true" />
+      <Column Name="TextLine8" Type="System.String" DbType="Char(132)" CanBeNull="true" />
+      <Column Name="TextLine9" Type="System.String" DbType="Char(132)" CanBeNull="true" />
+      <Column Name="TextLine10" Type="System.String" DbType="Char(132)" CanBeNull="true" />
+      <Column Name="TextLine11" Type="System.String" DbType="Char(132)" CanBeNull="true" />
+      <Column Name="CurrNetprInfRec" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="CarDesc" Type="System.String" DbType="Char(40)" CanBeNull="true" />
+      <Column Name="MatDocItem" Type="System.Decimal" DbType="Decimal(4,0)" CanBeNull="true" />
+      <Column Name="FiscalYear" Type="System.String" DbType="Char(4)" CanBeNull="true" />
+      <Column Name="matdocGI" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="ManSerialNumber" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="AssetNumber" Type="System.String" DbType="Char(12)" CanBeNull="true" />
+      <Column Name="CarRBentuk" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="DateCarRBentuk" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CarFaktur" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="DateCarFaktur" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CarFormA" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="DateCarFormA" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CarSertif" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="DateCarSertif" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CarRegUji" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="CarBPKB" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="StatusCarBPKB" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="RefKey" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="PONUMBER" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Customername" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="SchedItem" Type="System.Decimal" DbType="Decimal(4,0)" CanBeNull="true" />
+      <Column Name="SchedDelvDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TujuanDeliveryUnit" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Approver" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Master_Menu" Member="Master_Menus">
+    <Type Name="Master_Menu">
+      <Column Name="MenuID" Type="System.String" DbType="Char(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ParentID" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="MenuName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Text" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Url" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ParentIconClass" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="ChildIconClass" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="OrderNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Log_Error" Member="Log_Errors">
+    <Type Name="Log_Error">
+      <Column Name="ErrorID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ErrorTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ErrorMessage" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StackTrace" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Log_Login" Member="Log_Logins">
+    <Type Name="Log_Login">
+      <Column Name="LoginID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SessionID" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="UserID" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="LoginDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AlamatIP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

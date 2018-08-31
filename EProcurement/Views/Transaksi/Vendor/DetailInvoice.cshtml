@@ -1,0 +1,200 @@
+﻿@using EProcurement.Models
+@model EProcurement.Models.ViewModel.Transaksi.DetailInvoicePOVendorViewModel
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Styles {
+    <style>
+
+    </style>
+}
+
+<div class="page-header">
+    <h1>
+        Transaksi
+        <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            List Purchase Order
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            Detail Invoice/Kwitansi
+        </small>
+    </h1>
+</div><!-- /.page-header -->
+
+<div class="row">
+    <div class="col-xs-12">
+        <!-- PAGE CONTENT BEGINS -->
+        <form class="form-horizontal" role="form" method="post" action="~/ListPOVendor/DetailInvoice" enctype="multipart/form-data">
+            <!-- #section:elements.form -->
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">PO Number</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.PONumber, new { htmlAttributes = new { @id = "poNumber", @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.PONumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">PO Date</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.PODate, new { htmlAttributes = new { @Value = Model.PODate == null ? "" : Model.PODate.Value.ToString("dd/MM/yyyy"), @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.PODate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">PO Description</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.PODescription, new { htmlAttributes = new { @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.PODescription, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">BBN</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.BBN, new { htmlAttributes = new { @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.BBN, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Promise Delivery Date</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.PromiseDeliveryDate, new { htmlAttributes = new { @Value = Model.PromiseDeliveryDate == null ? "" : Model.PromiseDeliveryDate.Value.ToString("dd/MM/yyyy"), @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.PromiseDeliveryDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Expected Date Delivered</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.ExpectedDateDelivered, new { htmlAttributes = new { @Value = Model.ExpectedDateDelivered == null ? "" : Model.ExpectedDateDelivered.Value.ToString("dd/MM/yyyy"), @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.strExpectedDateDelivered, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Purchasing Officer</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.PurchassingOfficer, new { htmlAttributes = new { @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.PurchassingOfficer, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Invoice/Kwitansi No</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.InvoiceNo, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.InvoiceNo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Invoice/Kwitansi Date</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.InvoiceDate, new {  htmlAttributes = new { @Value = Model.InvoiceDate == null ? "" : Model.InvoiceDate.Value.ToString("dd/MM/yyyy"), @class = "date-picker" } })
+                    @Html.ValidationMessageFor(model => model.InvoiceDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">No. Seri Faktur Pajak</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.NoSeriFakturPajak, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.NoSeriFakturPajak, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Pay Plan</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.PayPlan, new { htmlAttributes = new { @Value = Model.PayPlan == null ? "" : Model.PayPlan.Value.ToString("dd/MM/yyyy"), @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.PayPlan, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Clearing Date</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.ClearingDate, new { htmlAttributes = new { @Value = Model.ClearingDate == null ? "" : Model.ClearingDate.Value.ToString("dd/MM/yyyy"), @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.ClearingDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Status Invoice/Kwitansi</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.StatusInvoice, new { htmlAttributes = new { @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.StatusInvoice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+              
+            <div class="clearfix form-actions">
+                <div class="col-md-offset-3 col-md-9">
+                    <button class="btn btn-danger btn-default btn-round">
+                        <i class="ace-icon fa fa-pencil-square white"></i>
+                        Update
+                    </button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a class="btn btn-grey btn-default btn-round" href="@Url.Action("Index", "ListPOVendor")">
+                        <i class="ace-icon fa fa-times white"></i>
+                        Back
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div><!-- PAGE CONTENT ENDS -->
+</div><!-- /.col -->
+
+
+@section Scripts {
+    <script type="text/javascript">
+        jQuery(function ($) {
+
+
+            //datepicker plugin
+            //link
+            $('.date-picker').datepicker({
+                autoclose: true,
+                format: 'dd/mm/yyyy',
+                todayHighlight: true
+            })
+            //show datepicker when clicking on the icon
+            .next().on(ace.click_event, function () {
+                $(this).prev().focus();
+            });
+
+            //or change it into a date range picker
+            $('.input-daterange').datepicker({ autoclose: true });
+
+            $('#postedFile , #postedFile2').ace_file_input({
+                no_file: 'No File ...',
+                btn_choose: 'Choose',
+                btn_change: 'Change',
+                droppable: false,
+                onchange: null,
+                thumbnail: false, //| true | large
+                type:'.jpg | .jpeg | .png'
+                //blacklist:'exe|php'
+                //onchange:''
+                //
+            });
+
+
+
+            $("select").select2();
+
+
+            $(document).one('ajaxloadstart.page', function (e) {
+
+                $('.daterangepicker.dropdown-menu,.colorpicker.dropdown-menu,.bootstrap-datetimepicker-widget.dropdown-menu').remove();
+            });
+        });
+
+
+    </script>
+}

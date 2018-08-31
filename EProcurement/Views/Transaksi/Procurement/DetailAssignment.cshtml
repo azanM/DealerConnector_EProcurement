@@ -1,0 +1,202 @@
+﻿@using EProcurement.Models
+@model EProcurement.Models.ViewModel.Transaksi.DetailAssignmentPOProcViewModel
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Styles {
+    <style>
+    </style>
+}
+
+<div class="page-header">
+    <h1>
+        Transaksi
+        <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            List Purchase Order
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            Detail Assignment
+        </small>
+    </h1>
+</div><!-- /.page-header -->
+
+<div class="row">
+    <div class="col-xs-12">
+        <!-- PAGE CONTENT BEGINS -->
+        <form class="form-horizontal" role="form" method="post" action="~/ListPOProcurement/DetailAssignment">
+            <!-- #section:elements.form -->
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">PO Number</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.PONumber, new { htmlAttributes = new { @id = "ponumber", @Name = "PONumber", @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.PONumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">PO Date</label>
+                <div class="col-sm-7">
+                    @Html.TextBoxFor(model => model.PODate, new { @Value = Model.PODate == null ? "" : Model.PODate.Value.ToString("dd/MM/yyyy"), @class = "col-sm-7", @readonly = true })
+                    @Html.ValidationMessageFor(model => model.PODate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">PO Description</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.PODescription, new { htmlAttributes = new { @id = "podescription", @Name = "PODescription", @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.PODescription, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">On The Road Price</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.PriceFormated, new { htmlAttributes = new { @id = "ontheroadprice", @Name = "OnTheRoadPrice", @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.OnTheRoadPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Discount</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.DiscountFormated, new { htmlAttributes = new { @id = "discount", @Name = "Discount", @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.Discount, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Net Price</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.NetFormated, new { htmlAttributes = new { @id = "netprice", @Name = "NetPrice", @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.NetPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">BBN</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.BBN, new { htmlAttributes = new { @id = "netprice", @Name = "NetPrice", @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.BBN, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Tujuan Delivery Unit</label>
+                <div class="col-sm-7">
+                    @Html.DropDownListFor(model => model.TujuanDeliveryUnit, null, ((Model.TujuanDeliveryUnit == null) ? "-- Tujuan Delivery Unit --" : Model.TujuanDeliveryUnit), new { htmlAttributes = new { @class = "select2 col-sm-7" } })
+                    &nbsp;&nbsp;&nbsp;
+                    <button id="btnAccept" class="btn btn-primary btn-bold btn-round">
+                        <i class="ace-icon fa fa-cloud-upload bigger-120 white"></i>
+                        Update Tujuan Delivery Unit
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Color</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.Color, new { htmlAttributes = new { @id = "netprice", @Name = "NetPrice", @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Expected Date Delivered</label>
+                <div class="col-sm-7">
+                    @Html.TextBoxFor(model => model.ExpectedDateDelivered, new { @Value = Model.ExpectedDateDelivered == null ? "" : Model.ExpectedDateDelivered.Value.ToString("dd/MM/yyyy"), @class = "col-sm-7", @readonly = true })
+                    @Html.ValidationMessageFor(model => model.ExpectedDateDelivered, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Promise Delivery Date</label>
+                <div class="col-sm-7">
+                    @Html.TextBoxFor(model => model.PromiseDeliveryDate, new { @Value = Model.PromiseDeliveryDate == null ? "" : Model.PromiseDeliveryDate.Value.ToString("dd/MM/yyyy"), @class = "col-sm-7", @readonly = true })
+                    @Html.ValidationMessageFor(model => model.PromiseDeliveryDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Officer Name</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.OfficerName, new { htmlAttributes = new { @id = "officername", @Name = "OfficerName", @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.OfficerName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">PR Karoseri</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.PRKaroseri, new { htmlAttributes = new { @id = "prkaroseri", @Name = "PRKaroseri", @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.PRKaroseri, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Accessories</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.Accessories, new { htmlAttributes = new { @id = "accessories", @Name = "Accessories", @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.Accessories, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Assign Vendor To</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.AssignVendorTo, new { htmlAttributes = new { @id = "assignvendorto", @Name = "AssignVendorTo", @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.AssignVendorTo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="clearfix form-actions">
+                <div class="col-md-1 col-md-9">
+                    <a class="btn btn-grey btn-default btn-round" href="@Url.Action("Index", "ListPOProcurement")">
+                        <i class="ace-icon fa fa-times white"></i>
+                        Back
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div><!-- PAGE CONTENT ENDS -->
+</div><!-- /.col -->
+
+
+@section Scripts {
+    <script type="text/javascript">
+        jQuery(function ($) {
+
+
+            //datepicker plugin
+            //link
+            $('.date-picker').datepicker({
+                autoclose: true,
+                format: 'dd/mm/yyyy',
+                todayHighlight: true
+            })
+            //show datepicker when clicking on the icon
+            .next().on(ace.click_event, function () {
+                $(this).prev().focus();
+            });
+
+            //or change it into a date range picker
+            $('.input-daterange').datepicker({ autoclose: true });
+
+
+
+
+            $("select").select2();
+
+
+            $(document).one('ajaxloadstart.page', function (e) {
+
+                $('.daterangepicker.dropdown-menu,.colorpicker.dropdown-menu,.bootstrap-datetimepicker-widget.dropdown-menu').remove();
+            });
+
+        });
+    </script>
+
+}

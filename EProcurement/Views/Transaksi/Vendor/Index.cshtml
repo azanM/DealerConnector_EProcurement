@@ -1,0 +1,273 @@
+﻿@using EProcurement.Models
+@model IEnumerable<EProcurement.Models.ViewModel.Transaksi.ListPOVendorViewModel>
+
+@{
+    ViewBag.Title = "Vendor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="page-header">
+    <h1>
+        Transaksi
+        <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            List Purchase Order
+        </small>
+    </h1>
+</div><!-- /.page-header -->
+<label class="block clearfix">
+    <span class="block input-icon input-icon-right">
+        <label>PO Number :</label>
+        <input type="text" id="Tx_PoNumber" style="width:10%" />
+
+        <label>No Rangka :</label>
+        <input type="text" id="Tx_NoRangka" style="width:10%" />
+
+        <button type="submit" id="btn_search" class="btn btn-sm btn-primary">
+            <i class="ace-icon fa fa-key"></i>
+            <span class="bigger-110">Search</span>
+        </button>
+
+    </span>
+</label>
+<div class="row">
+    <div class="col-xs-12">
+        <!-- PAGE CONTENT BEGINS -->
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="clearfix">
+                    <div class="pull-right tableTools-container"></div>
+                </div>
+
+                <table id="dynamic-table" class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>No PO Submitted</th>
+                            <th>PO Date</th>
+                            <th>Officer Name</th>
+                            <th width="125px">Status PO</th>
+                            <th width="125px">Assignment</th>
+                            <th width="125px">Delivery</th>
+                            <th width="125px">Invoice/Kwitansi</th>
+                            <th width="125px">BPKB</th>
+                        </tr>
+                    </thead>
+
+                    @*<tbody>
+                            @foreach (EProcurement.Models.ViewModel.Transaksi.ListPOVendorViewModel po in Model.OrderByDescending(p=> p.PODate))
+                            {
+                                <tr>
+                                    <td id="CITYID">
+                                        <span>@po.PONumber</span>
+                                        <span style="visibility:hidden">@po.ChasisNumber</span>
+                                    </td>
+                                    <td id="CITYNAME">
+                                        <span>@po.PODate.Value.ToShortDateString()</span>
+                                    </td>
+                                    <td id="STATUS">
+                                        <span>@po.OfficerName</span>
+                                    </td>
+                                    @if (po.StatusPO != "PO Cancel" && po.StatusPO != "PO Complete" && po.StatusPO != "Rejected")
+                                    {
+                                        <td id="statusPO">
+                                            @po.StatusPO
+                                            <br /><span style="color: darkviolet">BPKB Outstanding</span>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td id="statusPO">
+                                            @po.StatusPO
+                                        </td>
+                                    }
+
+                                    @if (@po.StatusId == "2" || @po.StatusPO == "Rejected")
+
+                                    {
+                                        if (@po.StatusPO != "Rejected")
+                                        {
+                                        <td>
+                                            <a class="label label-sm label-info arrowed arrowed-righ" href="@Url.Action("DetailAssignment", "ListPOVendor", new { poNUmber = po.PONumber })">Detail</a>
+                                        </td>
+                                        }
+                                        else
+                                        {
+                                            <td id="Assign"></td>
+                                        }
+                                        <td id="btnDetailDelivery"></td>
+                                        <td id="btnDetailInvoice"></td>
+                                        <td id="btnDetailBPKB"></td>
+                                    }
+                                    else
+                                    {
+                                        <td>
+                                            <a class="label label-sm label-info arrowed arrowed-righ" href="@Url.Action("DetailAssignment", "ListPOVendor", new { poNUmber = po.PONumber } )">Detail</a>
+                                        </td>
+                                        <td id="btnDetailDelivery">
+                                            <a class="label label-sm label-info arrowed arrowed-righ" href="@Url.Action("DetailDelivery", "ListPOVendor", new { poNUmber = po.PONumber } )">Action</a>
+                                        </td>
+                                        <td id="btnDetailInvoice">
+                                            <a class="label label-sm label-info arrowed arrowed-righ" href="@Url.Action("DetailInvoice", "ListPOVendor", new { poNUmber = po.PONumber } )">Action</a>
+                                        </td>
+                                        <td id="btnDetailBPKB">
+                                            <a class="label label-sm label-info arrowed arrowed-righ" href="@Url.Action("DetailBPKB", "ListPOVendor", new { poNUmber = po.PONumber } )">Action</a>
+                                        </td>
+                                    }
+                                </tr>
+                            }
+                        </tbody>*@
+                </table>
+
+            </div><!-- /.span -->
+        </div><!-- /.row -->
+    </div>
+</div>
+@{
+    string url = string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority, Url.Content("~"));
+}
+@section Scripts {
+    <script type="text/javascript">
+
+
+        jQuery(function ($) {
+            //Andri DNR Change Bind Datatable
+            if (localStorage['Datax'] != null && localStorage['Datax'] != 'undefined') {
+                $('#dynamic-table').DataTable().search(localStorage['Datax']).draw();
+            }
+
+            $("#Tx_PoNumber").val(localStorage['DataxVendor']);
+            $("#Tx_NoRangka").val(localStorage['DataxVendor2']);
+
+            $.ajax({
+                url: '@Url.Action("Search", "ListPOVendor")',
+                type: 'GET',
+                data: { PONUmber: $("#Tx_PoNumber").val(), NoRangka: $("#Tx_NoRangka").val() },
+                success: function (result) {
+                   // console.log(result);
+                    $('#dynamic-table')
+                     .dataTable({
+                         destroy: true,
+                         data: result,
+                         "deferRender": true,
+                         columns: [
+                             { 'data': "PONumber", "autowidth": true },
+                             { 'data': "StrPoDate", "autowidth": true },
+                             { 'data': "OfficerName", "autowidth": true },
+                             {
+                                 "render": function (data, type, full, meta) {
+                                     if (full.StatusPO != "PO Cancel" && full.StatusPO != "PO Complete" && full.StatusPO != "Rejected") {
+                                         return '<span >' + full.StatusPO + '</span><br /><span style="color: darkviolet">BPKB Outstanding</span>';
+                                     } else {
+                                         return '<span >' + full.StatusPO + '</span><br />';
+                                     }
+                                 }
+                             },
+                             {
+                                 "render": function (data, type, full, meta) {
+                                     return '<a class="label label-sm label-info arrowed arrowed-righ" href="/ListPOVendor/DetailAssignment?poNumber=' + full.PONumber + '">Detail</a>';
+                                 }
+                             },
+                             {
+                                 "render": function (data, type, full, meta) {
+                                     return '<a class="label label-sm label-info arrowed arrowed-righ" href="/ListPOVendor/DetailDelivery?poNumber=' + full.PONumber + '">Detail</a>';
+                                 }
+                             },
+                             {
+                                 "render": function (data, type, full, meta) {
+                                     return '<a class="label label-sm label-info arrowed arrowed-righ" href="/ListPOVendor/DetailInvoice?poNumber=' + full.PONumber + '">Detail</a>';
+                                 }
+                             },
+                             {
+                                 "render": function (data, type, full, meta) {
+                                     return '<a class="label label-sm label-info arrowed arrowed-righ" href="/ListPOVendor/DetailBPKB?poNumber=' + full.PONumber + '">Detail</a>';
+                                 }
+                             },
+                         ]
+                     });
+                },
+                error: function (request, status, error) {
+                    alert("Something Went Wrong.");
+                }
+            });
+            $('#btn_search').click(function () {
+                // $('#dynamic-table').destroy();
+
+                var poNumber = $("#Tx_PoNumber").val();
+                localStorage['DataxVendor'] = poNumber;
+                var noRangka = $("#Tx_NoRangka").val();
+                localStorage['DataxVendor2'] = noRangka;
+
+                $.ajax({
+                    url: '@Url.Action("Search", "ListPOVendor")',
+                    type: 'GET',
+                    data: { PONUmber: poNumber, NoRangka: noRangka },
+                    success: function (result) {
+                        $('#dynamic-table')
+                         .dataTable({
+                             destroy: true,
+                             data: result,
+                             "deferRender": true,
+                             columns: [
+                                 { 'data': "PONumber", "autowidth": true },
+                                 { 'data': "StrPoDate", "autowidth": true },
+                                 { 'data': "OfficerName", "autowidth": true },
+                                // { 'data': "OfficerName", "autowidth": true },
+                                 {
+                                     "render": function (data, type, full, meta) {
+                                         if (full.StatusPO != "PO Cancel" && full.StatusPO != "PO Complete" && full.StatusPO != "Rejected") {
+                                             return '<span >' + full.StatusPO + '</span><br /><span style="color: darkviolet">BPKB Outstanding</span>';
+                                         } else {
+                                             return '<span >' + full.StatusPO + '</span><br />';
+                                         }
+                                     }
+                                 },
+                                 {
+                                     "render": function (data, type, full, meta) {
+                                         return '<a class="label label-sm label-info arrowed arrowed-righ" href="/ListPOVendor/DetailAssignment?poNumber=' + full.PONumber + '">Detail</a>';
+                                     }
+                                 },
+                                 {
+                                     "render": function (data, type, full, meta) {
+                                         return '<a class="label label-sm label-info arrowed arrowed-righ" href="/ListPOVendor/DetailDelivery?poNumber=' + full.PONumber + '">Detail</a>';
+                                     }
+                                 },
+                                 {
+                                     "render": function (data, type, full, meta) {
+                                         return '<a class="label label-sm label-info arrowed arrowed-righ" href="/ListPOVendor/DetailInvoice?poNumber=' + full.PONumber + '">Detail</a>';
+                                     }
+                                 },
+                                 {
+                                     "render": function (data, type, full, meta) {
+                                         return '<a class="label label-sm label-info arrowed arrowed-righ" href="/ListPOVendor/DetailBPKB?poNumber=' + full.PONumber + '">Detail</a>';
+                                     }
+                                 },
+                             ],
+                             //      order: [[2, "desc"]],
+                         });
+                    },
+                    error: function (request, status, error) {
+                        alert("Something Went Wrong.");
+                    }
+                });
+            });
+            //End Andri DNR
+
+
+
+            $('#dynamic-table').on('search.dt', function () {
+                var valuex = $('#dynamic-table_filter [type]').val();
+                localStorage['Datax'] = valuex;
+            })
+            // oTable1.fnAdjustColumnSizing();
+            if (localStorage['Datax'] != null && localStorage['Datax'] != 'undefined') {
+                $('#dynamic-table').DataTable().search(localStorage['Datax']).draw();
+            }
+            $('.dropdown-toggle').click(function () {
+                localStorage['Datax'] = '';
+                localStorage['Dataxproc'] = '';
+            })
+
+
+        })
+
+    </script>
+}

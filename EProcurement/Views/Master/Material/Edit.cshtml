@@ -1,0 +1,188 @@
+﻿@using EProcurement.Models
+@model EProcurement.Models.MSMATERIAL
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Styles {
+    <style>
+    </style>
+}
+
+<div class="page-header">
+    <h1>
+        Master
+        <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            Material
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            Edit
+        </small>
+    </h1>
+</div><!-- /.page-header -->
+
+<div class="row">
+    <div class="col-xs-12">
+        <!-- PAGE CONTENT BEGINS -->
+        <form class="form-horizontal" role="form" method="post" action="~/material/edit">
+            <!-- #section:elements.form -->
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Material Number</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.MATERIALNUMBER, new { htmlAttributes = new { @class = "col-sm-7", @readonly = "true" } })
+                    @Html.ValidationMessageFor(model => model.MATERIALNUMBER, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Material ID Vendor</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.MATERIALIDVENDOR, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.MATERIALIDVENDOR, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Type</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.MATERIALTYPE, new { htmlAttributes = new { @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.MATERIALTYPE, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Group</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.MATERIALGROUP, new { htmlAttributes = new { @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.MATERIALGROUP, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Old Material</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.OLDMATERIAL, new { htmlAttributes = new { @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.OLDMATERIAL, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">BOM Material</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.BOMMATERIAL, new { htmlAttributes = new { @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.BOMMATERIAL, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Brand</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.BRAND, new { htmlAttributes = new { @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.BRAND, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Model</label>
+                <div class="col-sm-7">
+                    @*@Html.TextBox("MDL", string.Empty, new { @class = "col-sm-7" })*@
+                    @Html.EditorFor(model => model.MODEL, new { htmlAttributes = new { @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.MODEL, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Gardan</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.GARDAN, new { htmlAttributes = new { @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.GARDAN, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Year</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.YEAR, new { htmlAttributes = new { @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.YEAR, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Purchase Group ID</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.PURCHASEGROUPID, new { htmlAttributes = new { @class = "col-sm-7", @readonly = true } })
+                    @*@Html.DropDownListFor(model => model.PURCHASEGROUPID, (IEnumerable<SelectListItem>)ViewBag.purchaseId, "Pilih :", htmlAttributes: new { @class = "select2 js-source-states col-sm-4", @readonly = true })*@
+                    @Html.ValidationMessageFor(model => model.PURCHASEGROUPID)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Description</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.DESCRIPTION, new { htmlAttributes = new { @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.DESCRIPTION, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Pricelist</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.PRICELIST, new { htmlAttributes = new { @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.PRICELIST, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="clearfix form-actions">
+                <div class="col-md-offset-3 col-md-9">
+                    <button class="btn btn-primary btn-bold">
+                        <i class="ace-icon fa fa-floppy-o bigger-120 white"></i>
+                        Save
+                    </button>
+
+                    &nbsp; &nbsp; &nbsp;
+                    <a class="btn btn-grey btn-default btn-round" href="@Url.Action("Index", "Material")">
+                        <i class="ace-icon fa fa-times white"></i>
+                        Back
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div><!-- PAGE CONTENT ENDS -->
+</div><!-- /.col -->
+
+
+@section Scripts {
+    <script type="text/javascript">
+        jQuery(function ($) {
+
+
+            //datepicker plugin
+            //link
+            $('.date-picker').datepicker({
+                autoclose: true,
+                todayHighlight: true
+            })
+            //show datepicker when clicking on the icon
+            .next().on(ace.click_event, function () {
+                $(this).prev().focus();
+            });
+
+            //or change it into a date range picker
+            $('.input-daterange').datepicker({ autoclose: true });
+
+
+
+
+            $("select").select2();
+
+
+            $(document).one('ajaxloadstart.page', function (e) {
+
+                $('.daterangepicker.dropdown-menu,.colorpicker.dropdown-menu,.bootstrap-datetimepicker-widget.dropdown-menu').remove();
+            });
+
+        });
+    </script>
+
+}

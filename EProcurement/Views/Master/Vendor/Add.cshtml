@@ -1,0 +1,223 @@
+﻿@using EProcurement.Models
+@model EProcurement.Models.ViewModel.Master.VendorViewModel
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Styles {
+    <style>
+    </style>
+}
+
+<div class="page-header">
+    <h1>
+        Master
+        <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            Vendor
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            Add
+        </small>
+    </h1>
+</div><!-- /.page-header -->
+
+<div class="row">
+    <div class="col-xs-12">
+        <!-- PAGE CONTENT BEGINS -->
+        <form class="form-horizontal" role="form" method="post" action="~/vendor/add">
+            <!-- #section:elements.form -->
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">ID</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.VENDORID, new { htmlAttributes = new { @class = "col-sm-7", @required = "required" } })
+                    @Html.ValidationMessageFor(model => model.VENDORID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Nama</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.VENDORNAME, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.VENDORNAME, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Alamat Vendor</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.STREET, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.STREET, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1-1">Distrik</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.DISTRIC, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.DISTRIC, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Kota</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.CITY, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.CITY, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Telepon</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.TELEPHONE, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.TELEPHONE, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Postal Code</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.POSTALCODE, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.POSTALCODE, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Email</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Email 2</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.EMAIL2, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.EMAIL2, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Email 3</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.EMAIL3, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.EMAIL3, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Email 4</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.EMAIL4, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.EMAIL4, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Email 5</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.EMAIL5, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.EMAIL5, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Email 6</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.EMAIL6, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.EMAIL6, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Email 7</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.EMAIL7, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.EMAIL7, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Email 8</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.EMAIL8, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.EMAIL8, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Plant ID AI</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.PLANTIDTSO, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.PLANTIDTSO, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Is B2B</label>
+                @*<div class="">
+                        @Html.DropDownList("B2B", null, string.Empty, htmlAttributes: new { @class = "select2 js-source-states col-sm-4" })
+                    </div>*@
+                <div class="col-sm-7">
+                    @Html.CheckBoxFor(model => model.B2Bs)
+                </div>
+            </div>
+
+            <div class="clearfix form-actions">
+                <div class="col-md-offset-3 col-md-9">
+                    <button class="btn btn-primary btn-bold">
+                        <i class="ace-icon fa fa-floppy-o bigger-120 white"></i>
+                        Save
+                    </button>
+
+                    &nbsp; &nbsp; &nbsp;
+                    <a class="btn btn-grey btn-default btn-round" href="@Url.Action("Index", "Vendor")">
+                        <i class="ace-icon fa fa-times white"></i>
+                        Back
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div><!-- PAGE CONTENT ENDS -->
+</div><!-- /.col -->
+</div><!-- /.row -->
+					</div><!-- /.page-content -->
+				</div>
+			</div><!-- /.main-content -->
+
+@section Scripts {
+    <script type="text/javascript">
+        jQuery(function ($) {
+
+
+            //datepicker plugin
+            //link
+            $('.date-picker').datepicker({
+                autoclose: true,
+                todayHighlight: true
+            })
+            //show datepicker when clicking on the icon
+            .next().on(ace.click_event, function () {
+                $(this).prev().focus();
+            });
+
+            //or change it into a date range picker
+            $('.input-daterange').datepicker({ autoclose: true });
+
+
+
+
+            $("select").select2();
+
+
+            $(document).one('ajaxloadstart.page', function (e) {
+
+                $('.daterangepicker.dropdown-menu,.colorpicker.dropdown-menu,.bootstrap-datetimepicker-widget.dropdown-menu').remove();
+            });
+
+        });
+    </script>
+
+}

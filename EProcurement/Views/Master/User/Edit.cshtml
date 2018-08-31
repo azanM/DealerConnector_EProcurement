@@ -1,0 +1,184 @@
+﻿@using EProcurement.Models
+@model EProcurement.Models.Master_User
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Styles {
+    <style>
+    </style>
+}
+
+<div class="page-header">
+    <h1>
+        Master
+        <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            User
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            Edit
+        </small>
+    </h1>
+</div><!-- /.page-header -->
+
+<div class="row">
+    <div class="col-xs-12">
+        <!-- PAGE CONTENT BEGINS -->
+        <form class="form-horizontal" role="form" method="post" action="~/user/edit">
+            <!-- #section:elements.form -->
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">User ID</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.UserID, new { htmlAttributes = new { @class = "col-xs-10 col-sm-7", @readonly = "true" } })
+                    @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group" hidden="hidden">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Nama User</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Nama User</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "col-sm-7", @Id = "DisableFullName", @readonly = "true" } })
+                    @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Group ID</label>
+                <div class="">
+                    @* @Html.DropDownListFor(model => model.GroupID, (IEnumerable<SelectListItem>)ViewBag.groupId, "Pilih Group ID :", htmlAttributes: new { @class = "select2 js-source-states col-sm-4" })*@
+                    @Html.DropDownList("groupId", null, Model.GroupID == null ? "" : Model.GroupID.ToString(), htmlAttributes: new { @class = "select2 js-source-states col-sm-4", @ID = "Cabang" })
+                    @Html.ValidationMessageFor(model => model.GroupID)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Vendor ID / Plant ID</label>
+                <div class="">
+                    @Html.DropDownListFor(model => model.id_vendor, (IEnumerable<SelectListItem>)ViewBag.vendorId, "", htmlAttributes: new { @class = "select2 js-source-states col-sm-4", @ID = "Vendor" })
+                    @*@Html.DropDownList("vendorId", null, Model.id_vendor == null ? "" : Model.id_vendor.ToString(), htmlAttributes: new { @class = "select2 js-source-states col-sm-4", @ID = "Vendor" })*@
+                    @Html.ValidationMessageFor(model => model.id_vendor)
+                </div>
+            </div>
+
+            <div class="form-group" hidden="hidden">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Group Vendor</label>
+                <div class="">
+                    @*  @Html.DropDownListFor(model => model.Group_VendorID, (IEnumerable<SelectListItem>)ViewBag.groupVendorId, "Pilih Group Vendor ID :", htmlAttributes: new { @class = "select2 js-source-states col-sm-4" })*@
+                    @Html.DropDownList("groupVendorId", null, Model.Group_VendorID == null ? "" : Model.Group_VendorID.ToString(), htmlAttributes: new { @class = "select2 js-source-states col-sm-4" })
+                    @Html.ValidationMessageFor(model => model.Group_VendorID)
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Email</label>
+                    <div class="col-sm-7">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "col-sm-7" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+            <div class="form-group" hidden="hidden">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Password</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "col-sm-7", @type = "password" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group" hidden="hidden">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Konfirmasi Password</label>
+                <div class="col-sm-7">
+                    <input type="password" placeholder="Konfirmasi Password" class="col-xs-10 col-sm-7" />
+                </div>
+            </div>
+
+            <div class="clearfix form-actions">
+                <div class="col-md-offset-3 col-md-9">
+                    <button class="btn btn-primary btn-bold">
+                        <i class="ace-icon fa fa-floppy-o bigger-120 white"></i>
+                        Update
+                    </button>
+
+                    &nbsp; &nbsp; &nbsp;
+                    <a class="btn btn-grey btn-default btn-round" href="@Url.Action("Index", "User")">
+                        <i class="ace-icon fa fa-times white"></i>
+                        Back
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div><!-- PAGE CONTENT ENDS -->
+</div><!-- /.col -->
+@section Scripts {
+    <script type="text/javascript">
+        jQuery(function ($) {
+            var localityUrl = '@Url.Action("FetchVendor")';
+            var localities = $('#Vendor');
+            var cab = '@Model.GroupID';
+            if (cab == 'Procurement')
+                $('#DisableFullName').attr('readonly', false);
+            else
+                $('#DisableFullName').attr('readonly', true);
+            $('#Cabang').change(function () {
+                localities.empty();
+                if ($(this).val() == 'Procurement')
+                    $('#DisableFullName').attr('readonly', false);
+                else
+                    $('#DisableFullName').attr('readonly', true);
+                $.getJSON(localityUrl, { role: $(this).val() }, function (data) {
+                    if (!data) {
+                        return;
+                    }
+                    $.each(data, function (index, item) {
+                        localities.append($('<option></option>').val(item.Value).text(item.Text));
+                    });
+                });
+            })
+
+            $("#Vendor").change(function () {
+                var skillsSelect = document.getElementById("Vendor");
+                var selectedText = skillsSelect.options[skillsSelect.selectedIndex].text;
+                //alert(selectedText);
+                $('#FullName').val(selectedText);
+                $('#DisableFullName').val(selectedText);
+            });
+
+            //datepicker plugin
+            //link
+            $('.date-picker').datepicker({
+                autoclose: true,
+                todayHighlight: true
+            })
+            //show datepicker when clicking on the icon
+            .next().on(ace.click_event, function () {
+                $(this).prev().focus();
+            });
+
+            //or change it into a date range picker
+            $('.input-daterange').datepicker({ autoclose: true });
+
+
+
+
+            $("select").select2();
+
+
+            $(document).one('ajaxloadstart.page', function (e) {
+
+                $('.daterangepicker.dropdown-menu,.colorpicker.dropdown-menu,.bootstrap-datetimepicker-widget.dropdown-menu').remove();
+            });
+
+        });
+    </script>
+
+}

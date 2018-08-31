@@ -1,0 +1,88 @@
+﻿@using EProcurement.Models;
+@model Master_User
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<div class="main-container">
+    <div class="main-content">
+        <div class="row" style="padding-top: 20em">
+            <div class="col-sm-6 col-sm-offset-1" style="padding-top: 3em">
+                <div class="mCenter">
+                    <div style="font-size:3em; font-weight: 400; padding: 20px 0;">
+                        <span class="white ">Procurement Management</span>
+                    </div>
+
+                    <img src="../Content/images/SerraLogo.PNG" alt="SERA" style="width: 15em;margin: -2em;">
+                    <h1>
+                        <i class="ace-icon fa fa-car red"></i>
+                        <span class="white lighter">Dealer Connector</span>
+                    </h1>
+
+                    <h4 class="white" id="id-company-text">© SERA</h4>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="login-container" style="width: 100%!important">
+
+                    <div class="position-relative">
+                        <div id="login-box" class="login-box visible widget-box" style="background-color:transparent; border: 3px solid white">
+                            <div class="widget-body" style="background-color:transparent">
+                                <div class="widget-main" style="background-color:transparent">
+                                    @if (ViewData["error"] != null)
+                                    {
+                                        <div class="alert alert-danger alert-dismissable">
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                            <h4><i class="icon fa fa-ban"></i> Invalid User ID & Password</h4>
+                                            Please, Input Valid User ID & Password !
+                                        </div>
+                                    }
+
+                                    <h4 class="header white lighter bigger">
+                                        <i class="ace-icon fa fa-user green"></i>
+                                        Please Enter Your Information
+                                    </h4>
+
+                                    <div class="space-6"></div>
+
+                                    <form class="m-t" role="form" action="" method="post">
+                                        <fieldset>
+                                            <label class="block clearfix">
+                                                <span class="block input-icon input-icon-right">
+                                                    @Html.TextBoxFor(o => o.UserID, new { @class = "form-control", @placeholder = "User Id", @required = "" })
+                                                    <i class="ace-icon fa fa-user"></i>
+                                                </span>
+                                            </label>
+
+                                            <label class="block clearfix">
+                                                <span class="block input-icon input-icon-right">
+                                                    @Html.PasswordFor(o => o.Password, new { @class = "form-control", @placeholder = "Password", @required = "" })
+                                                    <i class="ace-icon fa fa-lock"></i>
+                                                </span>
+                                            </label>
+
+                                            <div class="space"></div>
+
+                                            <div class="clearfix">
+
+                                                <button type="submit" class="pull-right btn btn-sm btn-danger">
+                                                    <i class="ace-icon fa fa-key"></i>
+                                                    <span class="bigger-110">Login</span>
+                                                </button>
+                                            </div>
+
+                                            <div class="space-4"></div>
+                                        </fieldset>
+                                    </form>
+
+                                </div><!-- /.widget-main -->
+                            </div><!-- /.widget-body -->
+                        </div><!-- /.login-box -->
+                    </div><!-- /.position-relative -->
+                </div>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.main-content -->
+</div><!-- /.main-container -->

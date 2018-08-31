@@ -1,0 +1,370 @@
+﻿@using EProcurement.Models
+@model EProcurement.Models.ViewModel.Transaksi.DetailBPKBPOProcViewModel
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Styles {
+    <style>
+    </style>
+}
+
+<div class="page-header">
+    <h1>
+        Transaksi
+        <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            List Purchase Order
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            Detail BPKB
+        </small>
+    </h1>
+</div><!-- /.page-header -->
+
+<div class="row">
+    <div class="col-xs-12">
+        <!-- PAGE CONTENT BEGINS -->
+        <form class="form-horizontal" role="form" method="post" action="~/ListPOProcurement/DetailBPKB">
+            <!-- #section:elements.form -->
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">PO Number</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.PONumber, new { htmlAttributes = new { @ide = "PONumber", @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.PONumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">PO Date</label>
+                <div class="col-sm-7">
+                    @Html.TextBoxFor(model => model.PODate, new { @Value = Model.PODate == null ? "" : Model.PODate.Value.ToString("dd/MM/yyyy"), @class = "col-sm-7", @readonly = true })
+                    @Html.ValidationMessageFor(model => model.PODate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">PO Description</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.PODescription, new { htmlAttributes = new { @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.PODescription, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">BPKB GR Date</label>
+                <div class="col-sm-7">
+                    @Html.TextBoxFor(model => model.BPKBGRDate, new { @Value = Model.BPKBGRDate == null ? "" : Model.BPKBGRDate.Value.ToString("dd/MM/yyyy"), @class = "col-sm-7", @readonly = true })
+                    @Html.ValidationMessageFor(model => model.BPKBGRDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Actual Received Date BPKB di HO</label>
+                <div class="col-sm-7">
+                    @Html.TextBoxFor(model => model.ActualReceivedDateBPKBdiHO, new { @Value = Model.ActualReceivedDateBPKBdiHO == null ? "" : Model.ActualReceivedDateBPKBdiHO.Value.ToString("dd/MM/yyyy"), @class = "date-picker col-sm-7" })
+                    @Html.ValidationMessageFor(model => model.ActualReceivedDateBPKBdiHO, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Actual Received Date BPKB di Cabang</label>
+                <div class="col-sm-7">
+                    @Html.TextBoxFor(model => model.ActualReceivedDateBPKBdiCabang, new { @Value = Model.ActualReceivedDateBPKBdiCabang == null ? "" : Model.ActualReceivedDateBPKBdiCabang.Value.ToString("dd/MM/yyyy"), @class = "date-picker col-sm-7" })
+                    @Html.ValidationMessageFor(model => model.ActualReceivedDateBPKBdiCabang, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Actual Received BPKB HO From Branch</label>
+                <div class="col-sm-7">
+                    @Html.TextBoxFor(model => model.ActualReceivedDateBPKBHOFromBranch, new { @Value = Model.ActualReceivedDateBPKBHOFromBranch == null ? "" : Model.ActualReceivedDateBPKBHOFromBranch.Value.ToString("dd/MM/yyyy"), @class = "date-picker col-sm-7" })
+                    @Html.ValidationMessageFor(model => model.ActualReceivedDateBPKBHOFromBranch, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Detail Problem</label>
+                <div class="col-sm-7">
+                    @Html.DropDownListFor(model => model.DetailProblem, null, Model.DetailProblem, new { htmlAttributes = new { @class = "select2 col-sm-7" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Status BPKB</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.StatusBPKB, new { htmlAttributes = new { @class = "col-sm-7", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.StatusBPKB, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Reason for Revise BPKB</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.ReasonForReviseBPKB, new { htmlAttributes = new { @id = "ReasonForReviseBPKB", @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.ReasonForReviseBPKB, "", new { @class = "text-danger" })
+                    &nbsp;&nbsp;&nbsp;
+                    <button id="btnRevise" class="btn btn-xs btn-danger">
+                        <i class="ace-icon fa fa-pencil-square-o bigger-110"></i>
+                        Revise
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Tanggal BSTB</label>
+                <div class="col-sm-7">
+                    @Html.TextBoxFor(model => model.TanggalBSTB, new { @Value = Model.TanggalBSTB == null ? "" : Model.TanggalBSTB.Value.ToString("dd/MM/yyyy"), @class = Model.StatusPO == "12" ? "" : "date-picker col-sm-7", @readonly = Model.StatusPO == "12" ? true : Model.StatusPO == "5" ? true : false })
+                    @Html.ValidationMessageFor(model => model.TanggalBSTB, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Actual Delivery BPKB to Finance</label>
+                <div class="col-sm-7">
+                    @Html.TextBoxFor(model => model.ActualDeliveredDateBPKBToFinance, new { @Value = Model.ActualDeliveredDateBPKBToFinance == null ? "" : Model.ActualDeliveredDateBPKBToFinance.Value.ToString("dd/MM/yyyy"), @class = Model.StatusPO == "12" ? "" : "date-picker col-sm-7" })
+                    @Html.ValidationMessageFor(model => model.ActualDeliveredDateBPKBToFinance, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">BPKB Date Sent Back</label>
+                <div class="col-sm-7">
+                    @Html.TextBoxFor(model => model.BPKBDateSentBack, new { @Value = Model.BPKBDateSentBack == null ? "" : Model.BPKBDateSentBack.Value.ToString("dd/MM/yyyy"), @class = "date-picker col-sm-7" })
+                    @Html.ValidationMessageFor(model => model.BPKBDateSentBack, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Actual Received BPKB HO Back</label>
+                <div class="col-sm-7">
+                    @Html.TextBoxFor(model => model.ActualReceivedBPKBHOBack, new { @Value = Model.ActualReceivedBPKBHOBack == null ? "" : Model.ActualReceivedBPKBHOBack.Value.ToString("dd/MM/yyyy"), @class = "date-picker col-sm-7" })
+                    @Html.ValidationMessageFor(model => model.ActualReceivedBPKBHOBack, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Date Delivery to Branch or Vendor</label>
+                <div class="col-sm-7">
+                    @Html.TextBoxFor(model => model.DateDeliveryToBranchVendor, new { @Value = Model.DateDeliveryToBranchVendor == null ? "" : Model.DateDeliveryToBranchVendor.Value.ToString("dd/MM/yyyy"), @class = "date-picker col-sm-7" })
+                    @Html.ValidationMessageFor(model => model.DateDeliveryToBranchVendor, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Clearing Date</label>
+                <div class="col-sm-7">
+                    @Html.TextBoxFor(model => model.ClearingDate, new { @Value = Model.ClearingDate == null ? "" : Model.ClearingDate.Value.ToString("dd/MM/yyyy"), @class = "col-sm-7", @readonly = true })
+                    @Html.ValidationMessageFor(model => model.ClearingDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">BPKB Number</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.BPKBNumber, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.BPKBNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">No. Faktur Kendaraan</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.NoFakturKendaraan, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.NoFakturKendaraan, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">No. Sertifikat NIK</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.NoSertifikatNIK, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.NoSertifikatNIK, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">No. Formulir A</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.NoFormulirA, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.NoFormulirA, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">No. Rangka</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.NoRangka, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.NoRangka, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">No. Mesin</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.NoMesin, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.NoMesin, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Keterangan Surat Rubah Bentuk</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.KeteranganSuratUbahBentuk, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.KeteranganSuratUbahBentuk, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">No. Surat Rubah Bentuk</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.NoSuratUbahBentuk, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.NoSuratUbahBentuk, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Tanggal Surat Rubah Bentuk</label>
+                <div class="col-sm-7">
+                    @Html.TextBoxFor(model => model.TanggalSuratUbahBentuk, new { @Value = Model.TanggalSuratUbahBentuk == null ? "" : Model.TanggalSuratUbahBentuk.Value.ToString("dd/MM/yyyy"), @class = "date-picker col-sm-7" })
+                    @Html.ValidationMessageFor(model => model.TanggalSuratUbahBentuk, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">No. Surat Rubah Warna</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.NoSuratUbahWarna, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.NoSuratUbahWarna, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Tanggal Surat Rubah Warna</label>
+                <div class="col-sm-7">
+                    @Html.TextBoxFor(model => model.TanggalSuratUbahWarna, new { @Value = Model.TanggalSuratUbahWarna == null ? "" : Model.TanggalSuratUbahWarna.Value.ToString("dd/MM/yyyy"), @class = "date-picker col-sm-7" })
+                    @Html.ValidationMessageFor(model => model.TanggalSuratUbahWarna, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Keterangan Surat Rubah Warna</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.KeteranganSuratUbahWarna, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.KeteranganSuratUbahWarna, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">No. Sertifikat Registrasi Uji Tipe</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.NoSertifikatRegistrasiUjiTipe, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.NoSertifikatRegistrasiUjiTipe, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Remarks Detail Problem</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.RemarksDetailProblem, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.RemarksDetailProblem, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Remarks BPKB</label>
+                <div class="col-sm-7">
+                    @Html.EditorFor(model => model.RemarksBPKB, new { htmlAttributes = new { @class = "col-sm-7" } })
+                    @Html.ValidationMessageFor(model => model.RemarksBPKB, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="clearfix form-actions">
+                <div class="col-md-offset-3 col-md-9">
+                    <button id="btnUpdate" class="btn btn-danger btn-default btn-round">
+                        <i class="ace-icon fa fa-pencil-square white"></i>
+                        Update
+                    </button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a class="btn btn-grey btn-default btn-round" href="@Url.Action("Index", "ListPOProcurement")">
+                        <i class="ace-icon fa fa-times white"></i>
+                        Back
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div><!-- PAGE CONTENT ENDS -->
+</div><!-- /.col -->
+
+
+@section Scripts {
+    <script type="text/javascript">
+        jQuery(function ($) {
+
+
+            //datepicker plugin
+            //link
+            $('.date-picker').datepicker({
+                autoclose: true,
+                format: 'dd/mm/yyyy',
+                todayHighlight: true
+            })
+            //show datepicker when clicking on the icon
+            .next().on(ace.click_event, function () {
+                $(this).prev().focus();
+            });
+
+            //or change it into a date range picker
+            $('.input-daterange').datepicker({ autoclose: true });
+
+
+
+
+            $("select").select2();
+
+
+            $(document).one('ajaxloadstart.page', function (e) {
+
+                $('.daterangepicker.dropdown-menu,.colorpicker.dropdown-menu,.bootstrap-datetimepicker-widget.dropdown-menu').remove();
+            });
+
+        });
+
+        $('#btnRevise').click(function () {
+            var poNumber = $("#PONumber").val();
+            var reason = $("#ReasonForReviseBPKB").val();
+            if (reason.length == 0) {
+                alert("Please, Input Reason for Revised");
+            }
+            else {
+                $.ajax({
+                    url: '@Url.Action("ReviseDetailBPKB", "ListPOProcurement")',
+                    //url: '/ListPOProcurement/ReviseDetailBPKB',
+                    type: 'POST',
+                    async: false,
+                    data: { PONUmber: poNumber, ReasonForRevise: reason },
+                    success: function (data) {
+                        alert("Succeed to Revised.");
+                    },
+                    error: function (request, status, error) {
+                        alert("Something Went Wrong.");
+                    }
+                });
+            }
+            return false;
+        });
+
+        @*$('#btnUpdate').click(function () {
+            var poNumber = $("#DetailProblem").val();
+            if (poNumber.length == 0) {
+                @Model.DetailProblem = @Model.DetailProblem;
+            }
+            else {
+
+            }
+            return true;
+        });*@
+    </script>
+
+}
