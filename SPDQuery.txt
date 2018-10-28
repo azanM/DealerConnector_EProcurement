@@ -1,0 +1,46 @@
+
+
+DECLARE @TEMPTABLE TABLE
+	(
+		ID INT IDENTITY(1,1),
+
+		NOSPD VARCHAR(20), 
+
+		UANGMAKAN INT, 
+		
+		UANGSAKU INT, 
+		
+		TRANSPORTASI INT , 
+		
+		AKOMODASI INT
+	)
+
+INSERT INTO @TEMPTABLE
+
+Select *
+
+from
+	(
+	select noSPD as SpdNumber, msGolonganPlafon.harga as Biaya, 
+	
+	Replace(msPlafon.plafon,' ','') as JenisPlafon from trSPD inner join msGolonganPlafon 
+
+	on trSPD.idGolongan = msGolonganPlafon.golongan
+
+	inner join msPlafon on msGolonganPlafon.idPlafon = msPlafon.id
+
+	where trSPD.Tujuan = msGolonganPlafon.jenisSPD
+	
+	and msGolonganPlafon.idPlafon in(1,2,3,4)
+
+	) as spd
+
+	pivot
+	(
+		sum(Biaya)
+
+		for JenisPlafon IN (UangMakan, UangSaku, Transportasi,Akomodasi)
+				
+	) as pvt
+
+SELECT * FROM @TEMPTABLE
