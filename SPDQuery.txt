@@ -1,5 +1,7 @@
 
 
+azan akbar manik 
+
 DECLARE @TEMPTABLE TABLE
 	(
 		ID INT IDENTITY(1,1),
